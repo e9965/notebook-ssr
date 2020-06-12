@@ -3,7 +3,7 @@
 
 - 通過白嫖的JuypterNoteBook&白嫖Ngork的服務器來作酸酸乳用途
 
-[] 目前能力不足, 無法實現Kcptun / BBRPlus加速
+ [x] 目前能力不足, 無法實現Kcptun / BBRPlus加速
 
 
 ***
