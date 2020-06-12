@@ -1,7 +1,7 @@
 #!/bin/bash
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
-echo -e "\033[34m SSR自動安裝 \033[0m"
+echo -e "\033[34m 自動安裝SSR中...... \033[0m"
 echo -e "\033[34m ==================== \033[0m"
 #開設基本設置
 apt-get update > /dev/null 2>&1
@@ -19,6 +19,7 @@ chmod +x shadowsocks-all.sh
 nohup ./shadowsocks-all.sh &
 #完成搭建SSR
 echo -e "\033[34m ==================== \033[0m"
+sleep 10
 #開始等待完成搭建SSR
 seconds_left=300
 while [ $seconds_left -gt 0 ]
