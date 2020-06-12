@@ -3,21 +3,20 @@ OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 echo -e "\033[34m 自動安裝SSR中...... \033[0m"
 echo -e "\033[34m ==================== \033[0m"
-#開設基本設置
+echo -e "\033[32m 初始化中...... \033[0m"
 apt-get update > /dev/null 2>&1
 apt-get install wget -y > /dev/null 2>&1
-#完成基本設置
-#開設設置內網穿透服務
+echo -e "\033[32m 初始化完成...... \033[0m"
+echo -e "\033[32m 開始設置內網穿透...... \033[0m"
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1 && rm -f ngrok-stable-linux-amd64.zip
 ./ngrok authtoken 1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF > /dev/null 2>&1
 nohup ./ngrok tcp --region=jp 10086 &
-#完成設置內網穿透服務
-#開始搭建SSR
+echo -e "\033[32m 完成設置內網穿透...... \033[0m"
+echo -e "\033[32m 開始搭建SSR...... \033[0m"
 wget -O shadowsocks-all.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/shadowsocks-all.sh > /dev/null 2>&1
 chmod +x shadowsocks-all.sh
 nohup ./shadowsocks-all.sh &
-#完成搭建SSR
 echo -e "\033[34m ==================== \033[0m"
 sleep 10
 #開始等待完成搭建SSR
