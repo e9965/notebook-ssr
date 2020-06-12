@@ -16,7 +16,7 @@ nohup ./shadowsocks-all.sh > /dev/null 2>&1 &
 echo -e "\033[34m==================== \033[0m"
 sleep 10
 #開始等待完成搭建SSR
-seconds_left=300
+seconds_left=200
 while [ $seconds_left -gt 0 ]
 do
 	echo -n -e "\033[34m 距離搭建完成還剩下:${seconds_left}秒 \033[0m"
