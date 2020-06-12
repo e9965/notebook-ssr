@@ -19,7 +19,7 @@ sleep 10
 seconds_left=200
 while [ $seconds_left -gt 0 ]
 do
-	echo -n -e "\033[34m 距離搭建完成還剩下:${seconds_left}秒 \033[0m"
+	echo -n -e "\033[34m<<<<距離搭建完成還剩下:${seconds_left}秒>>>>\033[0m"
 	sleep 1
 	seconds_left=$(($seconds_left - 1))
 	echo -ne "\r     \r"
