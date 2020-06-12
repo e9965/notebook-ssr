@@ -3,10 +3,6 @@ OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 echo -e "\033[34m 自動安裝SSR中...... \033[0m"
 echo -e "\033[34m ==================== \033[0m"
-echo -e "\033[32m 初始化中...... \033[0m"
-apt-get update > /dev/null 2>&1
-apt-get install wget -y > /dev/null 2>&1
-echo -e "\033[32m 初始化完成...... \033[0m"
 echo -e "\033[32m 開始設置內網穿透...... \033[0m"
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1 && rm -f ngrok-stable-linux-amd64.zip
