@@ -1,4 +1,5 @@
 # notebook-ssr
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
 錯誤白嫖JuypterNoteBook的方法
 
 - 通過白嫖的JuypterNoteBook&白嫖Ngork的服務器來作酸酸乳用途
