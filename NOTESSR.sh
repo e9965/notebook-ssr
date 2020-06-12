@@ -6,7 +6,7 @@ echo -e "\033[34m==================== \033[0m"
 echo -e "\033[32m開始設置內網穿透...... \033[0m"
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1 && rm -f ngrok-stable-linux-amd64.zip
-./ngrok authtoken 1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF > /dev/null 2>&1
+./ngrok authtoken 1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 
 echo -e "\033[32m完成設置內網穿透...... \033[0m"
 echo -e "\033[32m開始搭建SSR...... \033[0m"
