@@ -26,7 +26,7 @@ export PATH
 # @Akkariiin  <https://github.com/Akkariiin>
 # 
 # Intro:  https://teddysun.com/486.html
-
+shadowsockspwd=$1
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
@@ -621,7 +621,6 @@ install_select(){
 
 install_prepare_password(){
     echo "Please enter password for ${software[${selected}-1]}"
-    shadowsockspwd="KennyBoy"
     [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
     echo
     echo "password = ${shadowsockspwd}"
