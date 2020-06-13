@@ -2,7 +2,7 @@
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 #=========================Variable============================#
-DomainName="nthykyldss"
+DomainName="nthyk"
 #=========================Function============================#
 	errhandle(){
 		exit 1
@@ -33,16 +33,10 @@ DomainName="nthykyldss"
 	
 	info(){
 	#Objective: Give the INFO of SSR
-		wget -O tunnels http://127.0.0.1:4040/api/tunnels > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
-			raw=$(grep -o "tcp://\{1\}[[:print:]].*,\{1\}" tunnels)
-			raw=${raw##*/}
-			raw=${raw%%\"*}
-			adress=${raw%%:*}
-			port=${raw##*:}
-			echo "服務器:${adress}"
-			echo "端口:${port}"
+			echo "服務器:nthyk.serveo.net"
+			echo "端口:80"
 			echo "密碼:KennyBoy"
 			echo "混淆:http_simple"
 			echo "方法:aes-256-cfb"
@@ -99,7 +93,7 @@ DomainName="nthykyldss"
 	
 #=========================Main_Program============================#
 flag=determinate
-echo -e "\033[34mNOTESSR2 腳本 -ver beta 0.5 \033[0m"
+echo -e "\033[34mNOTESSR2 腳本 -ver beta 1.0 \033[0m"
 main $flag
 #=========================End============================#
 IFS=$OLD_IFS
