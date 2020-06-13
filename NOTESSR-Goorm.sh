@@ -4,6 +4,7 @@ IFS=$(echo -en "\n\b")
 #=========================Variable============================#
 data=$1
 passwd=$2
+port=$3
 red='\033[31m'
 green='\033[32m'
 yellow='\033[33m'
@@ -37,8 +38,8 @@ endc='\033[0m'
 	info(){
 	#Objective: Give the INFO of SSR
 			echo -e "${blue}正在獲取SSR鏈接信息:${endc}"
-			echo -e "${green}服務器:\"${ip}\"${endc}"
-			echo -e "${green}端口:\"${port}\"${endc}"
+			echo -e "${green}服務器:\"${1}\"${endc}"
+			echo -e "${green}端口:\"${2}\"${endc}"
 			echo -e "${green}密碼:\"${pass}\"${endc}"
 			echo -e "${green}混淆:\"http_simple\"${endc}"
 			echo -e "${green}方法:\"aes-256-cfb\"${endc}"
@@ -64,7 +65,7 @@ endc='\033[0m'
 		echo -e "${green}自動安裝中......${endc}"
 		echo -e "${blue}開始搭建SSR......${endc}"
 		ssr $3
-    wait
+    		wait
 	else
 		echo -e "${blue}重新開啟SSR中......${endc}"
 		/etc/init.d/shadowsocks-r restart
@@ -81,15 +82,15 @@ endc='\033[0m'
 		/etc/init.d/shadowsocks-r status
 	fi
 	echo -e "${yellow}========================================${endc}"
-	info
+	info $2 $4
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 -ver beta 7.1${endc}"
+echo -e "${blue}NOTESSR 腳本 -ver beta 7.3${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
 then
-	main $? $data $passwd
+	main $? $data $passwd $port
 else
 	info
 fi
