@@ -55,7 +55,7 @@ passwd=$2
 			raw=${raw%%\"*}
 			adress=${raw%%:*}
 			port=${raw##*:}
-			pass=$(echo /etc/shadowsocks-r/config.json | grep "password")
+			pass=$(cat /etc/shadowsocks-r/config.json | grep "password")
 			pass=${pass##*:}
 			pass=${pass%%,*}
 			echo "服務器:${adress}"
@@ -123,7 +123,7 @@ passwd=$2
 	info
 	}
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 6.1 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 6.3 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 if [[ ${data} != "info" ]]
