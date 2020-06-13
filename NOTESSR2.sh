@@ -8,10 +8,10 @@ IFS=$(echo -en "\n\b")
 	
 	installtuning(){
 	#Objective: Setup Tuning
-		apt-get update -y > /dev/null 2>&1 && apt-get install autossh -y > /dev/null 2>&1
+		npm install -g localtunnel
 		if [[ $? != 0 ]]
 		then
-			echo -e "\033[31m無法安裝autossh,請檢查網絡並回報Bug\033[0m"
+			echo -e "\033[31m請嘗試安裝Node.JS\033[0m"
 			errhandle
 		fi
 		echo -e "\033[34m========================================\033[0m"
@@ -77,7 +77,7 @@ IFS=$(echo -en "\n\b")
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 	fi
 	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	autossh -M 0 -o "ServerAliveInterval 30" -R nthyke9965.serveo.net:80:localhost:10086 serveo.net
+	lt --port 10086 --subdomain nthyk
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	[[ $1 == 0 ]] && waitcounting
