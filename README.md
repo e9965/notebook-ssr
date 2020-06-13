@@ -45,7 +45,7 @@
 
 `!./NOTESSR.sh AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA passwd`
 
-" [AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA] 為NgrokToken | [passwd] 為鏈接SSR的密碼 "
+
 
 3. 額外: 忘記鏈接信息
 
