@@ -5,18 +5,30 @@ IFS=$(echo -en "\n\b")
 Token=$1
 #=========================Function============================#
 	errhandle(){
-		exit 1
+		case $1 in
+		1)echo -e "\033[31m初始化出錯,Ngork搭建失败,檢查網絡&請回報Bug\033[0m" && exit 2
+			;;
+		2)echo -e "\033[31m無法下載SSR搭建腳本,請檢查網絡並回報Bug\033[0m" && exit 2
+			;;
+		3)echo -e "\033[31m獲取服務器出錯,請回報Bug\033[0m" && exit 2
+			;;
+		4)echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && exit 2
+			;;
+		*)echo -e "\033[31m未知错误,错误代码$1,請回報Bug\033[0m" && exit 128
+			;;
+		esac
 	}
 	
 	installtuning(){
 	#Objective: Setup Tuning
+		echo -e "\033[34m========================================\033[0m"
+		echo -e "\033[34m開始初始化...... \033[0m"
 		wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-		if [[ $? != 0 ]]
-		then
-			echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
-		fi
+		if [[ $? != 0 ]] ; then errhandle 1 ; fi
 		unzip -q -o ngrok-stable-linux-amd64.zip && rm -f ngrok-stable-linux-amd64.zip
-		./ngrok authtoken $1
+		./ngrok authtoken $1 > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 1 ; fi
+		echo -e "\033[34m完成初始化...... \033[0m"
 		echo -e "\033[34m========================================\033[0m"
 	}
 	
@@ -27,7 +39,7 @@ Token=$1
 		then
 			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh > /dev/null 2>&1 &
 		else
-			echo -e "\033[31m無法下載SSR搭建腳本,請檢查網絡並回報Bug\033[0m" && errhandle
+			errhandle 2
 		fi
 	}
 	
@@ -48,8 +60,7 @@ Token=$1
 			echo "方法:aes-256-cfb"
 			echo "協議:auth_aes128_md5"
 		else
-			echo -e "\033[31m獲取服務器出錯,請回報Bug\033[0m"
-			errhandle
+			errhandle 3
 		fi
 	}
 	
@@ -95,22 +106,23 @@ Token=$1
 	echo -e "\033[33m正在查詢SSR狀態: \033[0m"
 	if [[ ! -f "/etc/init.d/shadowsocks-r" ]]
 	then
-		echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && errhandle
+		errhandle 4
 	else
 		/etc/init.d/shadowsocks-r status
 		echo -e "\033[34m========================================\033[0m"
 		echo -e "\033[32m開始設置內網穿透...... \033[0m"
 		nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
+		sleep 5
 		echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	fi
 	echo -e "\033[34m========================================\033[0m"
 	echo -e "\033[34m正在獲取SSR鏈接信息: \033[0m"
-	info
+				info
 	echo -e "\033[34m========================================\033[0m"
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 3.1 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 3.5 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 main $? $Token
