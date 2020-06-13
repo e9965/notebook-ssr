@@ -44,6 +44,7 @@ installbbr(){
 	BBR_grub
 	echo -e "${Tip} 重启VPS后，请重新运行脚本开启${Red_font_prefix}BBR/BBR魔改版${Font_color_suffix}"
 	stty erase '^H' && read -p "需要重启VPS后，才能开启BBR/BBR魔改版，是否现在重启 ? [Y/n] :" yn
+	yn="n"
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} VPS 重启中..."
@@ -71,6 +72,7 @@ installbbrplus(){
 	BBR_grub
 	echo -e "${Tip} 重启VPS后，请重新运行脚本开启${Red_font_prefix}BBRplus${Font_color_suffix}"
 	stty erase '^H' && read -p "需要重启VPS后，才能开启BBRplus，是否现在重启 ? [Y/n] :" yn
+	yn="n"
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} VPS 重启中..."
@@ -97,6 +99,7 @@ installlot(){
 	BBR_grub
 	echo -e "${Tip} 重启VPS后，请重新运行脚本开启${Red_font_prefix}Lotserver${Font_color_suffix}"
 	stty erase '^H' && read -p "需要重启VPS后，才能开启Lotserver，是否现在重启 ? [Y/n] :" yn
+	yn="n"
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} VPS 重启中..."
@@ -300,6 +303,7 @@ net.ipv4.ip_forward = 1">>/etc/sysctl.conf
 	echo "ulimit -SHn 1000000">>/etc/profile
 	read -p "需要重启VPS后，才能生效系统优化配置，是否现在重启 ? [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
+	yn="n"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} VPS 重启中..."
 		reboot
