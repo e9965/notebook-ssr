@@ -6,7 +6,7 @@
 
 - 通過白嫖的JuypterNoteBook&白嫖Ngork的服務器來作酸酸乳用途
 
-- 能力不足, 無法實現BBRPlus加速
+- 能力不足, 無法實現BBR(Plus)加速
 
 - 理論上無法支持KCPtun , 因為內網穿透服務難以支持SSR & 客戶端之間的UDP暴力轉發
 
@@ -22,11 +22,13 @@
 
   - 使用Ngork官方
   
-    `!chmod +x NOTESSR.sh && ./NOTESSR.sh {Ngroktoken / info}`
+    `!chmod +x NOTESSR.sh && ./NOTESSR.sh {Ngroktoken / info} {Your SSR Password}`
     
     - Ngroktoken : Ngrok賬戶的token
     
     - info : 查看目前SSR的鏈接信息
+    
+    - Your SSR Password : SSR鏈接密碼
   
 - 如需修改鏈接密碼/協議等 , 請自行修改SSR sh腳本
 ***
