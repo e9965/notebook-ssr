@@ -14,8 +14,6 @@ data=$1
 			;;
 		4)echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && exit 2
 			;;
-		5)echo -e "\033[31m無法下載BBR搭建腳本,請檢查網絡並回報Bug\033[0m" && exit 2
-			;;
 		*)echo -e "\033[31m未知错误,错误代码$1,請回報Bug\033[0m" && exit 128
 			;;
 		esac
@@ -100,8 +98,6 @@ data=$1
 		installtuning $token
 		echo -e "\033[32m開始搭建SSR...... \033[0m"
 		ssr
-		echo -e "\033[32m開始搭建BBR...... \033[0m"
-		nohup ./tcp.sh 5 > /dev/null 2>&1 &
 	else
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 		/etc/init.d/shadowsocks-r start
@@ -122,34 +118,13 @@ data=$1
 	echo -e "\033[34m========================================\033[0m"
 	info
 	}
-	
-	bbr(){
-		apt-get update -y  > /dev/null 2>&1
-		apt-get install grub2-common -y > /dev/null 2>&1
-		wget -O tcp.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/tcp.sh > /dev/null 2>&1
-		if [[ $? == 0 ]]
-		then
-			echo -e "\033[33m開始搭建BBR \033[0m"
-			chmod +x tcp.sh && nohup ./tcp.sh 1 > /dev/null 2>&1 &
-			waitcounting 120
-			echo -e "\033[33m請手動重啟NOTEBOOK & 運行 ./NOTESSR.sh {NgrokToken} \033[0m"
-			echo -e "\033[32m========================================\033[0m"
-		else
-			errhandle 5
-		fi
-	}
 #=========================Main_Program============================#
 echo -e "\033[32mNOTESSR 腳本 -ver beta 5.2 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 if [[ ${data} != "info" ]]
 then
-	if [[ ${data} != "bbr" ]]
-	then
-		main $? $data
-	else
-		bbr
-	fi
+	main $? $data
 else
 	info
 fi
