@@ -14,7 +14,7 @@
 ***
 ### 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
 
-`wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
+`https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
 
 ### 食用教程
 - 自行修改sh腳本
