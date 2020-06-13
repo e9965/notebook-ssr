@@ -17,11 +17,24 @@
 `wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
 
 ### 食用教程
+- 自行修改sh腳本
 - 將一下命令粘貼到Notebook & 運行就好了
-`!wget -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh > /dev/null 2>&1 && chmod +x NOTESSR.sh && ./NOTESSR.sh`
 
+  - 使用Ngork官方
+  
+    `!chmod +x NOTESSR.sh && ./NOTESSR.sh`
 
-- 如需修改鏈接密碼/協議等 , 請自行修改sh腳本
+  - 使用Servo
+  
+  `!chmod +x NOTESSR2.sh && ./NOTESSR2.sh`
+***
+本源的腳本地址:
+
+`https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh`
+
+`https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR2.sh`
+
+- 如需修改鏈接密碼/協議等 , 請自行修改SSR sh腳本
 ***
 
 
