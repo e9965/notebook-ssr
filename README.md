@@ -1,6 +1,5 @@
 # Notebook-SSR // By: E9965
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
-- [Notebook-SSR // By: E9965](#notebook-ssr----by--e9965)
   * [錯誤白嫖JuypterNoteBook的方法 & 簡介:](#----juypternotebook---------)
     + [食用教程](#----)
       - [食用栗子:](#---)
