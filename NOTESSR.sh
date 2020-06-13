@@ -60,10 +60,10 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 		seconds_left=200
 		while [ $seconds_left -gt 0 ]
 		do
-			echo -n -e "\033[s\033[34m<<<<距離搭建完成還剩下:${seconds_left}秒>>>>\033[0m\033[u"
+			echo -n -e "\033[34m<<<<距離搭建完成還剩下:${seconds_left}秒>>>>\033[0m"
 			sleep 1
 			seconds_left=$(($seconds_left - 1))
-			echo -ne "\033[K"
+			echo -ne "\r                                                       \r"
 		done
 	}
 	
