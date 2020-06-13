@@ -11,7 +11,11 @@ DomainName=nthykyldss.serveo.net
 	installtuning(){
 	#Objective: Setup Tuning
 		apt-get update -y > /dev/null 2>&1 && apt-get install autossh -y > /dev/null 2>&1
-		[[ $? == 0 ]] || echo -e "\033[31m初始化AutoSSH出錯,請回報Bug\033[0m" && errhandle
+		if [[ $? != 0 ]]
+		then
+			echo -e "\033[31m無法安裝autossh,請檢查網絡並回報Bug\033[0m"
+			errhandle
+		fi
 		echo -e "\033[34m========================================\033[0m"
 	}
 	
