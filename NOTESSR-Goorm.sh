@@ -37,8 +37,8 @@ endc='\033[0m'
 	info(){
 	#Objective: Give the INFO of SSR
 			echo -e "${blue}正在獲取SSR鏈接信息:${endc}"
-			echo -e "${green}服務器:\"需要在控制台讀取\"${endc}"
-			echo -e "${green}端口:\"需要在控制台設置\"${endc}"
+			echo -e "${green}服務器:\"${ip}\"${endc}"
+			echo -e "${green}端口:\"${port}\"${endc}"
 			echo -e "${green}密碼:\"${pass}\"${endc}"
 			echo -e "${green}混淆:\"http_simple\"${endc}"
 			echo -e "${green}方法:\"aes-256-cfb\"${endc}"
