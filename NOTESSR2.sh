@@ -99,7 +99,7 @@ DomainName="nthykyldss"
 	
 #=========================Main_Program============================#
 flag=determinate
-echo -e "\033[34mNOTESSR2 腳本 -ver beta 0.2 \033[0m"
+echo -e "\033[34mNOTESSR2 腳本 -ver beta 0.4 \033[0m"
 main $flag
 #=========================End============================#
 IFS=$OLD_IFS
