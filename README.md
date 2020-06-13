@@ -12,9 +12,16 @@
 
 - 可使用官方Ngork or Servo 的內網穿透服務
 ***
-### 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本
+### 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
 
 `wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
+
+### 食用教程
+- 將一下命令粘貼到Notebook & 運行就好了
+`!wget -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh > /dev/null 2>&1 && chmod +x NOTESSR.sh && ./NOTESSR.sh`
+
+
+- 如需修改鏈接密碼/協議等 , 請自行修改sh腳本
 ***
 
 
