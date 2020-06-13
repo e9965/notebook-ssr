@@ -86,7 +86,7 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 	fi
 	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1
+	nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	[ $flag -eq 0 ] && waitcounting
@@ -100,6 +100,8 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	
 #=========================Main_Program============================#
 flag=determinate
+echo -e "\033[30mNOTESSR 腳本 -ver beta 1.0 \033[0m"
+echo -e "\033[30m========================================\033[0m"
 main $flag
 #=========================End============================#
 IFS=$OLD_IFS
