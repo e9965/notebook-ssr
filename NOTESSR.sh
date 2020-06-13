@@ -3,6 +3,7 @@ OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 #=========================Variable============================#
 data=$1
+passwd=$2
 #=========================Function============================#
 	errhandle(){
 		case $1 in
@@ -37,7 +38,7 @@ data=$1
 		wget -O shadowsocks-all.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/shadowsocks-all.sh > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
-			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh > /dev/null 2>&1 &
+			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh $1 > /dev/null 2>&1 &
 		else
 			errhandle 2
 		fi
@@ -97,7 +98,7 @@ data=$1
 		echo -e "\033[34m自動安裝中...... \033[0m"
 		installtuning $token
 		echo -e "\033[32m開始搭建SSR...... \033[0m"
-		ssr
+		ssr $3
 	else
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 		/etc/init.d/shadowsocks-r start
@@ -124,7 +125,7 @@ echo -e "\033[32m========================================\033[0m"
 determinate
 if [[ ${data} != "info" ]]
 then
-	main $? $data
+	main $? $data $passwd
 else
 	info
 fi
