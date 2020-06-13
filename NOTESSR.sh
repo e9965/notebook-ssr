@@ -102,6 +102,10 @@ Token=$1
 		/etc/init.d/shadowsocks-r start
 	fi
 	echo -e "\033[34m========================================\033[0m"
+	echo -e "\033[32m開始設置內網穿透...... \033[0m"
+	nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
+	echo -e "\033[32m完成設置內網穿透...... \033[0m"
+	echo -e "\033[34m========================================\033[0m"
 	if [[ $firstrun == 0 ]] ; then waitcounting ; fi
 	echo -e "\033[33m正在查詢SSR狀態: \033[0m"
 	if [[ ! -f "/etc/init.d/shadowsocks-r" ]]
@@ -109,11 +113,6 @@ Token=$1
 		errhandle 4
 	else
 		/etc/init.d/shadowsocks-r status
-		echo -e "\033[34m========================================\033[0m"
-		echo -e "\033[32m開始設置內網穿透...... \033[0m"
-		nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
-		sleep 5
-		echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	fi
 	echo -e "\033[34m========================================\033[0m"
 	echo -e "\033[34m正在獲取SSR鏈接信息: \033[0m"
@@ -122,7 +121,7 @@ Token=$1
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 3.5 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 4.0 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 main $? $Token
