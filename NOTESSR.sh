@@ -10,9 +10,11 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	
 	installtuning(){
 	#Objective: Setup Tuning
-		tuningerr=0
 		wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
-		[ $? -eq 0 ] || tuningerr=1 && echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
+		if [[ $? != 0 ]]
+		then
+		echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
+		fi
 		unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1 && rm -f ngrok-stable-linux-amd64.zip
 		./ngrok authtoken ${token}
 		echo -e "\033[34m========================================\033[0m"
@@ -20,14 +22,12 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	
 	ssr(){
 	#Objective: Setup SSR
-		ssrerr=0
 		wget -O shadowsocks-all.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/shadowsocks-all.sh > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
 			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh > /dev/null 2>&1 &
 		else
 			echo -e "\033[31m無法下載SSR搭建腳本,請檢查網絡並回報Bug\033[0m"
-			ssrerr=1
 			errhandle
 		fi
 	}
@@ -37,7 +37,6 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 		wget -O tunnels http://127.0.0.1:4040/api/tunnels > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
-			infoerr=0
 			raw=$(grep -o "tcp://\{1\}[[:print:]].*,\{1\}" tunnels)
 			raw=${raw##*/}
 			raw=${raw%%\"*}
@@ -50,7 +49,6 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 			echo "方法:aes-256-cfb"
 			echo "協議:auth_aes128_md5"
 		else
-			infoerr=1
 			echo -e "\033[31m獲取服務器出錯,請回報Bug\033[0m"
 			errhandle
 		fi
