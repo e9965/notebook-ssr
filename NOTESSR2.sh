@@ -88,7 +88,7 @@ DomainName="nthykyldss"
 	autossh -M 0 -o "ServerAliveInterval 30" -R ${DomainName}:80:localhost:10086 serveo.net
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
-	[ $flag -eq 0 ] && waitcounting
+	[[ $1 == 0 ]] && waitcounting
 	echo -e "\033[33m正在查詢SSR狀態: \033[0m"
 	/etc/init.d/shadowsocks-r status || echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && errhandle
 	echo -e "\033[34m========================================\033[0m"
