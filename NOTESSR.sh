@@ -76,7 +76,7 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	
 	main(){
 	firstrun=$1
-	if [[ $flag -eq 0 ]] 
+	if [[ $firstrun == 0 ]] 
 	then
 		echo -e "\033[34m自動安裝SSR中...... \033[0m"
 		installtuning
@@ -89,7 +89,7 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
-	[ $flag -eq 0 ] && waitcounting
+	if [[ $firstrun == 0 ]] ; then waitcounting ; fi
 	echo -e "\033[33m正在查詢SSR狀態: \033[0m"
 	/etc/init.d/shadowsocks-r status || echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && errhandle
 	echo -e "\033[34m========================================\033[0m"
