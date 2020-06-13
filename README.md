@@ -1,4 +1,4 @@
-# notebook-ssr
+# Notebook-SSR // By: E9965
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
 
 
