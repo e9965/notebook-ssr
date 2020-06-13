@@ -91,9 +91,9 @@ IFS=$(echo -en "\n\b")
 	}
 	
 #=========================Main_Program============================#
-flag=determinate
-echo -e "\033[35mNOTESSR2 腳本 -ver beta 1.5 \033[0m"
+echo -e "\033[35mNOTESSR2 腳本 -ver beta 2.0 \033[0m"
 echo -e "\033[35m========================================\033[0m"
-main $flag
+determinate
+main $?
 #=========================End============================#
 IFS=$OLD_IFS
