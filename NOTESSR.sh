@@ -99,9 +99,9 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	}
 	
 #=========================Main_Program============================#
-flag=determinate
-echo -e "\033[30mNOTESSR 腳本 -ver beta 1.0 \033[0m"
+echo -e "\033[30mNOTESSR 腳本 -ver beta 2.0 \033[0m"
 echo -e "\033[30m========================================\033[0m"
-main $flag
+determinate
+main $?
 #=========================End============================#
 IFS=$OLD_IFS
