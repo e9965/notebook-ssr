@@ -91,7 +91,7 @@ IFS=$(echo -en "\n\b")
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[35mNOTESSR2 腳本 -ver beta 2.0 \033[0m"
+echo -e "\033[35mNOTESSR2 腳本 -ver beta 2.1 \033[0m"
 echo -e "\033[35m========================================\033[0m"
 determinate
 main $?
