@@ -8,8 +8,8 @@ IFS=$(echo -en "\n\b")
 	
 	installtuning(){
 	#Objective: Setup Tuning
-		npm install -g localtunnel > 2>&1
-		npm install -g npm > 2>&1
+		npm install -g localtunnel > /dev/null 2>&1
+		npm install -g npm > /dev/null 2>&1
 		if [[ $? != 0 ]]
 		then
 			echo -e "\033[31m請嘗試安裝Node.JS\033[0m"
@@ -78,7 +78,7 @@ IFS=$(echo -en "\n\b")
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 	fi
 	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	nohup lt --port 10086 --subdomain nthykyldss --allow-invalid-cert true > 2>&1 &
+	nohup lt --port 10086 --subdomain nthykyldss --allow-invalid-cert true > /dev/null 2>&1 &
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	[[ $1 == 0 ]] && waitcounting
@@ -92,7 +92,7 @@ IFS=$(echo -en "\n\b")
 	
 #=========================Main_Program============================#
 flag=determinate
-echo -e "\033[35mNOTESSR2 腳本 -ver beta 1.3 \033[0m"
+echo -e "\033[35mNOTESSR2 腳本 -ver beta 1.5 \033[0m"
 echo -e "\033[35m========================================\033[0m"
 main $flag
 #=========================End============================#
