@@ -10,7 +10,12 @@
 
 - 理論上無法支持KCPtun , 因為內網穿透服務難以支持SSR & 客戶端之間的UDP暴力轉發
 
-- 可使用官方Ngork的內網穿透服務
+- 可使用官方Ngork (JP) 的內網穿透服務
+
+- 線上免費:JuypterNoteBook
+  - Kaggle [ 9小時 | 無須扶墻重建SSR | 硬盤I/O限制250Mb/s]
+  
+  - GoogleColab [ 12小時 | 需要扶墻重建SSR | 硬盤I/O限制100Mb/s]
 ***
 ### 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
 
@@ -31,7 +36,7 @@
   
 - 如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本
 ***
-本源的腳本地址:
+### 本源的腳本地址:
 
 `https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh`
 
@@ -40,6 +45,7 @@
 
 ## 更新日誌:
 
-- 2020/6/12:筆記本 ver0.01 
+- 2020/6/12:筆記本 beta 0.01 
 - 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
 - 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
+- 2020/6/13:優化NOTESSR.sh (可自定義Passwd)
