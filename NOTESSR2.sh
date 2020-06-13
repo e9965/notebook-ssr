@@ -62,13 +62,13 @@ IFS=$(echo -en "\n\b")
 	determinate(){
 	#Objective: Check Whether install or not
 	installed=0
-	/etc/init.d/shadowsocks-r status || installed=1
+	/etc/init.d/shadowsocks-r status  > /dev/null 2>&1 || installed=1
 	return ${installed}
 	}
 	
 	main(){
-	firstrun=$1
-	if [[ $firstrun == 0 ]] 
+	firstrun=${1}
+	if [[ ${firstrun} == 0 ]] 
 	then
 		echo -e "\033[34m自動安裝SSR中...... \033[0m"
 		installtuning
