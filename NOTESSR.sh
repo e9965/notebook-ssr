@@ -129,9 +129,11 @@ data=$1
 		wget -O tcp.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/tcp.sh > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
+			echo -e "\033[33m開始搭建BBR \033[0m"
 			chmod +x tcp.sh && nohup ./tcp.sh 1 > /dev/null 2>&1 &
 			waitcounting 120
 			echo -e "\033[33m請手動重啟NOTEBOOK & 運行 ./NOTESSR.sh {NgrokToken} \033[0m"
+			echo -e "\033[32m========================================\033[0m"
 		else
 			errhandle 2
 		fi
