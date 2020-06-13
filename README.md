@@ -23,9 +23,9 @@
 
 ```
 說明:
-{Ngroktoken} : Ngrok賬戶的token
+{Ngroktoken}        : Ngrok賬戶的token
 {Your SSR Password} : SSR鏈接密碼
-{info} : 查看目前SSR的鏈接信息
+{info}              : 查看目前SSR的鏈接信息
 ```
 
 *如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
