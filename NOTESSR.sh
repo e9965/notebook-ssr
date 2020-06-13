@@ -55,9 +55,10 @@ passwd=$2
 			raw=${raw%%\"*}
 			adress=${raw%%:*}
 			port=${raw##*:}
+			pass=$(cat ssrpass)
 			echo "服務器:${adress}"
 			echo "端口:${port}"
-			echo "密碼:KennyBoy"
+			echo "密碼:${pass}"
 			echo "混淆:http_simple"
 			echo "方法:aes-256-cfb"
 			echo "協議:auth_aes128_md5"
@@ -125,6 +126,7 @@ echo -e "\033[32m========================================\033[0m"
 determinate
 if [[ ${data} != "info" ]]
 then
+	echo -n $passwd > ssrpass
 	main $? $data $passwd
 else
 	info
