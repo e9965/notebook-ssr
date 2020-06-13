@@ -33,8 +33,24 @@
     - info : 查看目前SSR的鏈接信息
     
     - Your SSR Password : SSR鏈接密碼
-  
-- 如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本
+
+*如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
+
+#### 栗子:
+1. 下載腳本 並 賦予權限
+
+`!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh`
+
+2. 運行腳本
+
+`!./NOTESSR.sh AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA passwd`
+
+" [AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA] 為NgrokToken | [passwd] 為鏈接SSR的密碼 "
+
+3. 額外: 忘記鏈接信息
+
+`!./NOTESSR.sh info`
+
 ***
 ### 本源的腳本地址:
 
