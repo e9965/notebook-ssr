@@ -3,9 +3,8 @@
 - [Notebook-SSR // By: E9965](#notebook-ssr----by--e9965)
   * [錯誤白嫖JuypterNoteBook的方法 & 簡介:](#----juypternotebook---------)
     + [食用教程](#----)
-      - [栗子:](#---)
-    + [本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬](#-------------------------------)
-    + [本源的腳本地址:](#--------)
+      - [食用栗子:](#---)
+    + [其他](#-------------------------------)
   * [更新日誌:](#-----)
 
 ***
@@ -40,7 +39,7 @@
 
 *如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
 
-#### 栗子:
+#### 食用栗子:
 1. 下載腳本 並 賦予權限
 
 `!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh`
@@ -54,11 +53,13 @@
 `!./NOTESSR.sh info`
 
 ***
-### 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
+## 其他
+
+本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
 
 `https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
 
-### 本源的腳本地址:
+本源的腳本地址:
 
 `https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh`
 
