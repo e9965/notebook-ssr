@@ -135,11 +135,11 @@ data=$1
 			echo -e "\033[33m請手動重啟NOTEBOOK & 運行 ./NOTESSR.sh {NgrokToken} \033[0m"
 			echo -e "\033[32m========================================\033[0m"
 		else
-			errhandle 2
+			errhandle 5
 		fi
 	}
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 5.0 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 5.2 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 if [[ ${data} != "info" ]]
