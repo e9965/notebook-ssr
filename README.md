@@ -10,7 +10,7 @@
 
 - 理論上無法支持KCPtun , 因為內網穿透服務難以支持SSR & 客戶端之間的UDP暴力轉發
 
-- 可使用官方Ngork or Servo 的內網穿透服務
+- 可使用官方Ngork的內網穿透服務
 ***
 ### 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
 
@@ -22,19 +22,17 @@
 
   - 使用Ngork官方
   
-    `!chmod +x NOTESSR.sh && ./NOTESSR.sh`
-
-  - 使用Ngork非官方
-  
-     `!chmod +x NOTESSR2.sh && ./NOTESSR2.sh`
+    `!chmod +x NOTESSR.sh && ./NOTESSR.sh {Ngroktoken / info}`
+    
+    - Ngroktoken : Ngrok賬戶的token
+    
+    - info : 查看目前SSR的鏈接信息
   
 - 如需修改鏈接密碼/協議等 , 請自行修改SSR sh腳本
 ***
 本源的腳本地址:
 
 `https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh`
-
-`https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR2.sh`
 
 ***
 
@@ -43,3 +41,4 @@
 
 - 2020/6/12:筆記本 ver0.01 
 - 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
+- 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
