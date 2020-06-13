@@ -2,15 +2,15 @@
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 #=========================Variable============================#
-Token=$1
+data=$1
 #=========================Function============================#
 	errhandle(){
 		case $1 in
-		1)echo -e "\033[31m初始化出錯,Ngork搭建失败,檢查網絡&請回報Bug\033[0m" && exit 2
+		1)echo -e "\033[31m初始化出錯,Ngrok搭建失败,檢查網絡&請回報Bug\033[0m" && exit 2
 			;;
 		2)echo -e "\033[31m無法下載SSR搭建腳本,請檢查網絡並回報Bug\033[0m" && exit 2
 			;;
-		3)echo -e "\033[31m獲取服務器出錯,請回報Bug\033[0m" && exit 2
+		3)echo -e "\033[31m未正確啟動Ngrok,請回報Bug\033[0m" && exit 2
 			;;
 		4)echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && exit 2
 			;;
@@ -48,6 +48,7 @@ Token=$1
 		wget -O tunnels http://127.0.0.1:4040/api/tunnels > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
+			echo -e "\033[34m正在獲取SSR鏈接信息: \033[0m"
 			raw=$(grep -o "tcp://\{1\}[[:print:]].*,\{1\}" tunnels)
 			raw=${raw##*/}
 			raw=${raw%%\"*}
@@ -59,6 +60,7 @@ Token=$1
 			echo "混淆:http_simple"
 			echo "方法:aes-256-cfb"
 			echo "協議:auth_aes128_md5"
+			echo -e "\033[34m========================================\033[0m"
 		else
 			errhandle 3
 		fi
@@ -114,15 +116,18 @@ Token=$1
 		/etc/init.d/shadowsocks-r status
 	fi
 	echo -e "\033[34m========================================\033[0m"
-	echo -e "\033[34m正在獲取SSR鏈接信息: \033[0m"
-				info
-	echo -e "\033[34m========================================\033[0m"
+	info
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 4.1 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 4.2 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
-main $? $Token
+if [[ ${data} != "info" ]]
+then
+	main $? $data
+else
+	info
+fi
 #=========================End============================#
 IFS=$OLD_IFS
