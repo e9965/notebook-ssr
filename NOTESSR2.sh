@@ -2,7 +2,7 @@
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 #=========================Variable============================#
-DomainName=nthykyldss.serveo.net
+Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 #=========================Function============================#
 	errhandle(){
 		exit 1
@@ -11,8 +11,10 @@ DomainName=nthykyldss.serveo.net
 	installtuning(){
 	#Objective: Setup Tuning
 		tuningerr=0
-		apt-get update -y > /dev/null 2>&1 && apt-get install autossh -y > /dev/null 2>&1
-		[ $? -eq 0 ] || tuningerr=1 && echo -e "\033[31m初始化AutoSSH出錯,請回報Bug\033[0m" && errhandle
+		wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
+		[ $? -eq 0 ] || tuningerr=1 && echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
+		unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1 && rm -f ngrok-stable-linux-amd64.zip
+		./ngrok authtoken ${token}
 		echo -e "\033[34m========================================\033[0m"
 	}
 	
@@ -86,7 +88,7 @@ DomainName=nthykyldss.serveo.net
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 	fi
 	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	autossh -M 0 -o "ServerAliveInterval 30" -R ${DomainName}:80:localhost:10086 serveo.net
+	nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	[ $flag -eq 0 ] && waitcounting
