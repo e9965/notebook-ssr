@@ -58,12 +58,12 @@ passwd=$2
 			pass=$(cat /etc/shadowsocks-r/config.json | grep "password")
 			pass=${pass##*:}
 			pass=${pass%%,*}
-			echo "服務器:${adress}"
-			echo "端口:${port}"
-			echo "密碼:${pass}"
-			echo "混淆:http_simple"
-			echo "方法:aes-256-cfb"
-			echo "協議:auth_aes128_md5"
+			echo "服務器:\"${adress}\""
+			echo "端口:\"${port}\""
+			echo "密碼:\"${pass}\""
+			echo "混淆:\"http_simple\""
+			echo "方法:\"aes-256-cfb\""
+			echo "協議:\"auth_aes128_md5\""
 			echo -e "\033[34m========================================\033[0m"
 		else
 			errhandle 3
@@ -123,7 +123,7 @@ passwd=$2
 	info
 	}
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 6.3 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 6.5 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 if [[ ${data} != "info" ]]
