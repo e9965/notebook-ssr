@@ -29,12 +29,15 @@
 - 將一下命令粘貼到Notebook & 運行就好了
   
     `!chmod +x NOTESSR.sh && ./NOTESSR.sh {Ngroktoken / info} {Your SSR Password}`
-    
+```
+    說明:
     - Ngroktoken : Ngrok賬戶的token
     
     - info : 查看目前SSR的鏈接信息
     
     - Your SSR Password : SSR鏈接密碼
+    
+```
 
 *如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
 
