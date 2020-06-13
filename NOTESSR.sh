@@ -69,8 +69,12 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	
 	determinate(){
 	#Objective: Check Whether install or not
-	installed=0
-	/etc/init.d/shadowsocks-r status || installed=1
+	if [[ ! -f "/etc/init.d/shadowsocks-r" ]]
+	then
+		installed=0
+	else
+		installed=1
+	fi
 	return ${installed}
 	}
 	
