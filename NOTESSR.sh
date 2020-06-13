@@ -81,7 +81,7 @@ endc='\033[0m'
 		seconds_left=$1
 		while [ $seconds_left -gt 0 ]
 		do
-			echo -n -e "${blue}<<<<距離搭建完成還剩下:${seconds_left}秒>>>>${endc}"
+			echo -n -e "${pp}<<<<距離搭建完成還剩下:${seconds_left}秒>>>>${endc}"
 			sleep 1
 			seconds_left=$(($seconds_left - 1))
 			echo -ne "\r                                                       \r"
@@ -130,7 +130,7 @@ endc='\033[0m'
 	info
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 -ver beta 7.0${endc}"
+echo -e "${blue}NOTESSR 腳本 -ver beta 7.1${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
