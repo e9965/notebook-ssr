@@ -78,7 +78,7 @@ IFS=$(echo -en "\n\b")
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 	fi
 	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	nohup lt --port 10086 --subdomain nthykyldss --allow-invalid-cert > 2>&1 &
+	nohup lt --port 10086 --subdomain nthykyldss --allow-invalid-cert true > 2>&1 &
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	[[ $1 == 0 ]] && waitcounting
