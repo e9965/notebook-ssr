@@ -24,7 +24,7 @@
   
     `!chmod +x NOTESSR.sh && ./NOTESSR.sh`
 
-  - 使用Servo
+  - 使用Ngork非官方
   
      `!chmod +x NOTESSR2.sh && ./NOTESSR2.sh`
   
@@ -42,4 +42,4 @@
 ## 更新日誌:
 
 - 2020/6/12:筆記本 ver0.01 
-- 2020/6/13:更新NOTESSR2.sh (使用Servo) | 更新NOTESSR.sh (使用Ngork官方) 
+- 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
