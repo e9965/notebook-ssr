@@ -22,7 +22,6 @@
 - 將一下命令粘貼到Notebook & 運行就好了
 
 ```
-說明:
 {Ngroktoken}        : Ngrok賬戶的token
 {Your SSR Password} : SSR鏈接密碼
 {info}              : 查看目前SSR的鏈接信息
