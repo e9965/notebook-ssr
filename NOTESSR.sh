@@ -60,10 +60,10 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 		seconds_left=200
 		while [ $seconds_left -gt 0 ]
 		do
-			echo -n -e "\033[34m<<<<距離搭建完成還剩下:${seconds_left}秒>>>>\033[0m"
+			echo -n -e "\033[s\033[34m<<<<距離搭建完成還剩下:${seconds_left}秒>>>>\033[0m\033[u"
 			sleep 1
 			seconds_left=$(($seconds_left - 1))
-			echo -ne "\r     \r"
+			echo -ne "\033[K"
 		done
 	}
 	
@@ -95,7 +95,12 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	echo -e "\033[34m========================================\033[0m"
 	if [[ $firstrun == 0 ]] ; then waitcounting ; fi
 	echo -e "\033[33m正在查詢SSR狀態: \033[0m"
-	/etc/init.d/shadowsocks-r status || echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && errhandle
+	if [[ ! -f "/etc/init.d/shadowsocks-r" ]]
+	then
+		echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && errhandle
+	else
+		/etc/init.d/shadowsocks-r status
+	fi
 	echo -e "\033[34m========================================\033[0m"
 	echo -e "\033[34m正在獲取SSR鏈接信息: \033[0m"
 	info
@@ -103,7 +108,7 @@ Token=1byGcMs2lE1L4iV5nSygWfa0o8D_88inzKDCWZ2khchLWEouF
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[30mNOTESSR 腳本 -ver beta 2.0 \033[0m"
+echo -e "\033[30mNOTESSR 腳本 -ver beta 2.5 \033[0m"
 echo -e "\033[30m========================================\033[0m"
 determinate
 main $?
