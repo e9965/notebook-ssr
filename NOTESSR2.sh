@@ -95,6 +95,7 @@ DomainName=nthykyldss.serveo.net
 	
 #=========================Main_Program============================#
 flag=determinate
+echo -e "\033[34mNOTESSR2 腳本 -ver beta 0.1 \033[0m"
 main $flag
 #=========================End============================#
 IFS=$OLD_IFS
