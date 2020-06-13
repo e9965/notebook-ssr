@@ -2,7 +2,7 @@
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 #=========================Variable============================#
-DomainName=nthykyldss
+DomainName="nthykyldss"
 #=========================Function============================#
 	errhandle(){
 		exit 1
