@@ -85,14 +85,14 @@ endc='\033[0m'
 	info $2 $4
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 -ver beta 7.3${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 7.5${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
 then
 	main $? $data $passwd $port
 else
-	info
+	info $data $port
 fi
 #=========================End============================#
 IFS=$OLD_IFS
