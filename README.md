@@ -1,10 +1,10 @@
 # Notebook-SSR // By: E9965
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
-  * [錯誤白嫖JuypterNoteBook的方法 & 簡介](#----juypternotebook---------)
-    + [食用教程](#----)
-      - [食用栗子](#---)
-    + [其他](#-------------------------------)
-  * [更新日誌:](#-----)
+  * [錯誤白嫖JuypterNoteBook的方法 & 簡介](#錯誤白嫖JuypterNoteBook的方法 & 簡介)
+    + [食用教程](#食用教程)
+      - [食用栗子](#食用栗子)
+    + [其他](#其他)
+  * [更新日誌](#更新日誌)
 
 ***
 ## 錯誤白嫖JuypterNoteBook的方法 & 簡介
@@ -64,7 +64,7 @@
 
 ***
 
-## 更新日誌:
+## 更新日誌
 
 - 2020/6/12:筆記本 beta 0.01 
 - 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
