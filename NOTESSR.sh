@@ -16,7 +16,7 @@ Token=$1
 			echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
 		fi
 		unzip -q -o ngrok-stable-linux-amd64.zip && rm -f ngrok-stable-linux-amd64.zip
-		./ngrok authtoken ${token}
+		./ngrok authtoken $1
 		echo -e "\033[34m========================================\033[0m"
 	}
 	
@@ -79,10 +79,11 @@ Token=$1
 	
 	main(){
 	firstrun=$1
+	token=$2
 	if [[ $firstrun == 0 ]] 
 	then
 		echo -e "\033[34m自動安裝SSR中...... \033[0m"
-		installtuning
+		installtuning $token
 		echo -e "\033[32m開始搭建SSR...... \033[0m"
 		ssr
 	else
@@ -109,9 +110,9 @@ Token=$1
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[30mNOTESSR 腳本 -ver beta 3.0 \033[0m"
-echo -e "\033[30m========================================\033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 3.1 \033[0m"
+echo -e "\033[32m========================================\033[0m"
 determinate
-main $?
+main $? $1
 #=========================End============================#
 IFS=$OLD_IFS
