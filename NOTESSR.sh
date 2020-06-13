@@ -38,7 +38,7 @@ passwd=$2
 		wget -O shadowsocks-all.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/shadowsocks-all.sh > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
-			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh $1 > /dev/null 2>&1 &
+			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh install $1 > /dev/null 2>&1 &
 		else
 			errhandle 2
 		fi
