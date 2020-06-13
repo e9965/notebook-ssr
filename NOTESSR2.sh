@@ -1,8 +1,6 @@
 #!/bin/bash
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
-#=========================Variable============================#
-DomainName="nthyk"
 #=========================Function============================#
 	errhandle(){
 		exit 1
@@ -79,7 +77,7 @@ DomainName="nthyk"
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
 	fi
 	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	autossh -M 0 -o "ServerAliveInterval 30" -R ${DomainName}:80:localhost:10086 serveo.net
+	autossh -M 0 -o "ServerAliveInterval 30" -R nthyk:80:localhost:10086 serveo.net
 	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	[[ $1 == 0 ]] && waitcounting
