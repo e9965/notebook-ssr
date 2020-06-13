@@ -66,7 +66,6 @@ Token=$1
 	
 	waitcounting(){
 	#Objective: Time Waiting Process
-		sleep 10
 		seconds_left=200
 		while [ $seconds_left -gt 0 ]
 		do
@@ -121,7 +120,7 @@ Token=$1
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[32mNOTESSR 腳本 -ver beta 4.0 \033[0m"
+echo -e "\033[32mNOTESSR 腳本 -ver beta 4.1 \033[0m"
 echo -e "\033[32m========================================\033[0m"
 determinate
 main $? $Token
