@@ -26,7 +26,9 @@
 
   - 使用Servo
   
-  `!chmod +x NOTESSR2.sh && ./NOTESSR2.sh`
+     `!chmod +x NOTESSR2.sh && ./NOTESSR2.sh`
+  
+- 如需修改鏈接密碼/協議等 , 請自行修改SSR sh腳本
 ***
 本源的腳本地址:
 
@@ -34,7 +36,6 @@
 
 `https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR2.sh`
 
-- 如需修改鏈接密碼/協議等 , 請自行修改SSR sh腳本
 ***
 
 
