@@ -10,12 +10,12 @@ Token=$1
 	
 	installtuning(){
 	#Objective: Setup Tuning
-		wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
+		wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 		if [[ $? != 0 ]]
 		then
-		echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
+			echo -e "\033[31m初始化出錯,檢查網絡&請回報Bug\033[0m" && errhandle
 		fi
-		unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1 && rm -f ngrok-stable-linux-amd64.zip
+		unzip -q -o ngrok-stable-linux-amd64.zip && rm -f ngrok-stable-linux-amd64.zip
 		./ngrok authtoken ${token}
 		echo -e "\033[34m========================================\033[0m"
 	}
@@ -27,8 +27,7 @@ Token=$1
 		then
 			chmod +x shadowsocks-all.sh && nohup ./shadowsocks-all.sh > /dev/null 2>&1 &
 		else
-			echo -e "\033[31m無法下載SSR搭建腳本,請檢查網絡並回報Bug\033[0m"
-			errhandle
+			echo -e "\033[31m無法下載SSR搭建腳本,請檢查網絡並回報Bug\033[0m" && errhandle
 		fi
 	}
 	
@@ -88,10 +87,8 @@ Token=$1
 		ssr
 	else
 		echo -e "\033[34m重新開啟SSR中...... \033[0m"
+		/etc/init.d/shadowsocks-r start
 	fi
-	echo -e "\033[32m開始設置內網穿透...... \033[0m"
-	nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
-	echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	echo -e "\033[34m========================================\033[0m"
 	if [[ $firstrun == 0 ]] ; then waitcounting ; fi
 	echo -e "\033[33m正在查詢SSR狀態: \033[0m"
@@ -100,6 +97,10 @@ Token=$1
 		echo -e "\033[31m未完成搭建SSR,請回報Bug\033[0m" && errhandle
 	else
 		/etc/init.d/shadowsocks-r status
+		echo -e "\033[34m========================================\033[0m"
+		echo -e "\033[32m開始設置內網穿透...... \033[0m"
+		nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
+		echo -e "\033[32m完成設置內網穿透...... \033[0m"
 	fi
 	echo -e "\033[34m========================================\033[0m"
 	echo -e "\033[34m正在獲取SSR鏈接信息: \033[0m"
@@ -108,7 +109,7 @@ Token=$1
 	}
 	
 #=========================Main_Program============================#
-echo -e "\033[30mNOTESSR 腳本 -ver beta 2.5 \033[0m"
+echo -e "\033[30mNOTESSR 腳本 -ver beta 3.0 \033[0m"
 echo -e "\033[30m========================================\033[0m"
 determinate
 main $?
