@@ -11,6 +11,8 @@
 ```
 - 通過白嫖的JuypterNoteBook&白嫖Ngork的服務器來作酸酸乳用途
 
+- 使用Ngork官方JP服務器
+
 - 能力不足, 無法實現BBR(Plus)加速
 
 - 理論上無法支持KCPtun , 因為內網穿透服務難以支持SSR & 客戶端之間的UDP暴力轉發
@@ -25,8 +27,6 @@
 ***
 ### 食用教程
 - 將一下命令粘貼到Notebook & 運行就好了
-
-  - 使用Ngork官方
   
     `!chmod +x NOTESSR.sh && ./NOTESSR.sh {Ngroktoken / info} {Your SSR Password}`
     
