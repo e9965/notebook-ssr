@@ -61,8 +61,12 @@ IFS=$(echo -en "\n\b")
 	
 	determinate(){
 	#Objective: Check Whether install or not
-	installed=0
-	/etc/init.d/shadowsocks-r status  > /dev/null 2>&1 || installed=1
+	if [[ ! -f "/etc/init.d/shadowsocks-r" ]]
+	then
+		installed=0
+	else
+		installed=1
+	fi
 	return ${installed}
 	}
 	
