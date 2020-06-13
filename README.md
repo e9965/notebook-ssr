@@ -1,6 +1,6 @@
 # Notebook-SSR // By: E9965
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
-  * [錯誤白嫖JuypterNoteBook的方法 & 簡介](#錯誤白嫖JuypterNoteBook的方法 & 簡介)
+  * [錯誤白嫖JuypterNoteBook的方法 & 簡介](#錯誤白嫖JuypterNoteBook的方法-&-簡介)
     + [食用教程](#食用教程)
       - [食用栗子](#食用栗子)
     + [其他](#其他)
@@ -20,30 +20,40 @@
 ***
 ### 食用教程
 - 將一下命令粘貼到Notebook & 運行就好了
-  
-    `!chmod +x NOTESSR.sh && ./NOTESSR.sh {Ngroktoken / info} {Your SSR Password}`
+
 ```
 說明:
 {Ngroktoken} : Ngrok賬戶的token
 {Your SSR Password} : SSR鏈接密碼
 {info} : 查看目前SSR的鏈接信息
 ```
+
 *如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
 #### 食用栗子
 1. 下載腳本 並 賦予權限
+
 `!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh`
+
 2. 運行腳本
+
 `!./NOTESSR.sh AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA passwd`
+
 3. 額外: 忘記鏈接信息
+
 `!./NOTESSR.sh info`
+
 ***
 ## 其他
 本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
+
 `https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
+
 本源的腳本地址:
+
 `https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh`
 ***
 ## 更新日誌
+
 - 2020/6/12:筆記本 beta 0.01 
 - 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
 - 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
