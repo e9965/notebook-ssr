@@ -44,12 +44,13 @@ endc='\033[0m'
 				pass=$(cat /etc/shadowsocks-r/config.json | grep "password")
 				pass=${pass##*:}
 				pass=${pass%%,*}
-				echo -e "${blue}正在獲取SSR鏈接信息:${endc}"
+				echo -e "${blue}正在獲取SS鏈接信息:${endc}"
 				echo -e "${green}服務器:\"${1}\"${endc}"
 				echo -e "${green}端口:\"${2}\"${endc}"
 				echo -e "${green}密碼:\"${pass}\"${endc}"
-				echo -e "${green}方法:\"aes-256-cfb\"${endc}"
-				echo -e "${green}協議:\"auth_aes128_md5\"${endc}"
+				echo -e "${green}方法:\"chacha20\"${endc}"
+				echo -e "${green}協議:\"origin\"${endc}"
+				echo -e "${green}Obfs:\"plain\"${endc}"
 				echo -e "${yellow}========================================${endc}"
 			fi
 	}
