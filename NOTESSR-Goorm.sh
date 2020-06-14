@@ -4,6 +4,8 @@ IFS=$(echo -en "\n\b")
 #=========================Variable============================#
 data=$1
 passwd=$2
+pathtofile=$(pwd)
+pathtofile="${pathtofile}/shadowsocks-libev/config.json"
 red='\033[31m'
 green='\033[32m'
 yellow='\033[33m'
@@ -29,18 +31,18 @@ endc='\033[0m'
 		apt-get install shadowsocks-libev -y > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
-			echo "{" > /etc/shadowsocks-libev/config.json
-			echo "\"server\":\"0.0.0.0\"," >> /etc/shadowsocks-libev/config.json
-			echo "\"server_port\":10086," >> /etc/shadowsocks-libev/config.json
-			echo "\"local_port\":1081," >> /etc/shadowsocks-libev/config.json
-			echo "\"password\":\"${1}\"," >> /etc/shadowsocks-libev/config.json
-			echo "\"timeout\":60," >> /etc/shadowsocks-libev/config.json
-			echo "\"method\":\"chacha20\"," >> /etc/shadowsocks-libev/config.json
-			echo "\"local\":\"127.0.0.1\"," >> /etc/shadowsocks-libev/config.json
-			echo "\"fast_open\":false" >> /etc/shadowsocks-libev/config.json
-			echo "}" >> /etc/shadowsocks-libev/config.json
+			echo "{" > ${pathtofile}
+			echo "\"server\":\"0.0.0.0\"," >> ${pathtofile}
+			echo "\"server_port\":10086," >> ${pathtofile}
+			echo "\"local_port\":1081," >> ${pathtofile}
+			echo "\"password\":\"${1}\"," >> ${pathtofile}
+			echo "\"timeout\":60," >> ${pathtofile}
+			echo "\"method\":\"chacha20\"," >> ${pathtofile}
+			echo "\"local\":\"127.0.0.1\"," >> ${pathtofile}
+			echo "\"fast_open\":false" >> ${pathtofile}
+			echo "}" >> ${pathtofile}
 			service shadowsocks-libev restart
-			nohup ss-server -c config.json > /dev/null 2>&1 &
+			nohup ss-server -c ${pathtofile} > /dev/null 2>&1 &
 		else
 			errhandle 1
 		fi
@@ -48,12 +50,12 @@ endc='\033[0m'
 	
 	info(){
 	#Objective: Give the INFO of SSR
-			if [[ ! -f "/etc/shadowsocks-libev/config.json" ]]
+			if [[ ! -f ${pathtofile} ]]
 			then
 				errhandle 2
 			else
 				echo -e "${blue}正在獲取SS鏈接信息:${endc}"
-				pass=$(cat /etc/shadowsocks-libev/config.json | grep "password")
+				pass=$(cat ${pathtofile} | grep "password")
 				pass=${pass##*:}
 				pass=${pass#*\"}
 				pass=${pass%%,*}
@@ -74,7 +76,7 @@ endc='\033[0m'
 	
 	determinate(){
 	#Objective: Check Whether install or not
-	if [[ ! -f "/etc/shadowsocks-libev/config.json" ]]
+	if [[ ! -f ${pathtofile} ]]
 	then
 		installed=0
 	else
@@ -106,13 +108,13 @@ endc='\033[0m'
 	else
 		echo -e "${blue}重新開啟SS中......${endc}"
 		/etc/init.d/shadowsocks-libev restart
-		nohup ss-server -c config.json > /dev/null 2>&1 &
+		nohup ss-server -c ${pathtofile} > /dev/null 2>&1 &
 		echo -e "${green}重新開啟SS成功......${endc}"
 	fi
 	echo -e "${red}提示:需要手動設置端口映射${endc}"
 	echo -e "${yellow}========================================${endc}"
 	echo -e "${yellow}正在查詢SS狀態:${endc}"
-	if [[ ! -f "/etc/init.d/shadowsocks-libev" ]]
+	if [[ ! -f ${pathtofile} ]]
 	then
 		errhandle 2
 	else
