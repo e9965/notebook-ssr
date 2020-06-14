@@ -572,7 +572,7 @@ install_dependencies(){
 
         apt-get -y update
         for depend in ${apt_depends[@]}; do
-            error_detect_depends "sudo apt-get -y install ${depend}"
+            error_detect_depends sudo\ apt-get\ -y\ install\ ${depend}
         done
     fi
 }
