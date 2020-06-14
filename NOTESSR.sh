@@ -38,8 +38,6 @@ endc='\033[0m'
 		echo -e "${blue}初始化中......${endc}"
 		apt-get install nodejs -y > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 1 ; fi
-		apt-get install npm -y > /dev/null 2>&1
-		if [[ $? != 0 ]] ; then errhandle 1 ; fi
 		npm install -g qrcode-terminal > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 1 ; fi
 		echo -e "${green}完成初始化......${endc}"
@@ -143,7 +141,7 @@ endc='\033[0m'
 	info
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 -ver beta 7.1${endc}"
+echo -e "${blue}NOTESSR 腳本 -ver beta 8.1${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
