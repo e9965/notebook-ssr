@@ -24,12 +24,12 @@ endc='\033[0m'
 		esac
 	}
 	
-	ssr(){
+	ss(){
 	#Objective: Setup SS
 		wget -q -O shadowsocks-libev.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/shadowsocks-libev.sh
 		if [[ $? == 0 ]]
 		then
-			chmod +x shadowsocks-libev
+			chmod +x shadowsocks-libev.sh 
      			source shadowsocks-libev.sh install $1 > /dev/null 2>&1
 			wait
 		else
@@ -113,7 +113,7 @@ endc='\033[0m'
 	wait
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.2${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.3${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
