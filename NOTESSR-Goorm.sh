@@ -40,16 +40,20 @@ endc='\033[0m'
 			then
 				errhandle 2
 			else
+				echo -e "${blue}正在獲取SS鏈接信息:${endc}"
 				pass=$(cat /etc/shadowsocks-libev/config.json | grep "password")
 				pass=${pass##*:}
 				pass=${pass%%,*}
-				echo -e "${blue}正在獲取SS鏈接信息:${endc}"
+				sslink=$(echo -n "chacha20:${pass}@${1}:${2}" | base64 -w0)
 				echo -e "${green}服務器:\"${1}\"${endc}"
 				echo -e "${green}端口:\"${2}\"${endc}"
 				echo -e "${green}密碼:\"${pass}\"${endc}"
 				echo -e "${green}方法:\"chacha20\"${endc}"
 				echo -e "${green}協議:\"origin\"${endc}"
 				echo -e "${green}Obfs:\"plain\"${endc}"
+				echo -e "${green}链接:\"ss://${sslink}\"${endc}"
+				echo -e "${green}二维码:${endc}"
+				qrcode-terminal ss://${sslink}
 				echo -e "${yellow}========================================${endc}"
 			fi
 	}
@@ -65,16 +69,29 @@ endc='\033[0m'
 	return ${installed}
 	}
 	
+	iniqrcode(){
+		echo -e "${blue}初始化中......${endc}"
+		apt-get install nodejs -y > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 0 ; fi
+		apt-get install npm -y > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 0 ; fi
+		npm install -g qrcode-terminal > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 0 ; fi
+		echo -e "${green}完成初始化......${endc}"
+	}
+	
 	main(){
 	firstrun=$1
 	if [[ $firstrun == 0 ]] 
 	then
 		echo -e "${green}自動安裝中......${endc}"
 		echo -e "${yellow}========================================${endc}"
-		echo -e "${blue}開始搭建SS......${endc}"
+					iniqrcode
 		echo -e "${yellow}========================================${endc}"
-		ss $3
-    		wait && clear
+		echo -e "${blue}開始搭建SS......${endc}"
+					ss $3
+					wait && clear
+		echo -e "${yellow}========================================${endc}"
 	else
 		echo -e "${blue}重新開啟SS中......${endc}"
 		/etc/init.d/shadowsocks-libev restart
@@ -93,7 +110,7 @@ endc='\033[0m'
 	info $2 $4
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.0${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
