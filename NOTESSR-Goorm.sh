@@ -127,13 +127,13 @@ endc='\033[0m'
 #=========================Main_Program============================#
 clear
 echo -e "${yellow}========================================${endc}"
-echo -e "${blue}NOTESSR 腳本 Goorm-ver ver 1.0${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver ver 1.0.1${endc}"
 echo -e "${yellow}========================================${endc}"
-determinate
 if [[ ${data} != "info" ]]
 then
 	port=${data##*:}
 	data=${data%%:*}
+	determinate
 	main $? $data $passwd $port
 	wait
 else
