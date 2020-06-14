@@ -30,8 +30,12 @@ endc='\033[0m'
 		if [[ $? == 0 ]]
 		then
 			chmod +x shadowsocks-libev.sh 
-     			source shadowsocks-libev.sh install $1 > /dev/null 2>&1
-			wait
+     			source shadowsocks-libev.sh install $1
+			if [[ $? != 0 ]]
+			then
+				clear
+				errhandle 2
+			fi
 		else
 			errhandle 1
 		fi
@@ -113,7 +117,7 @@ endc='\033[0m'
 	wait
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.3${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.5${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
