@@ -5,6 +5,7 @@ IFS=$(echo -en "\n\b")
 data=$1
 passwd=$2
 pathtofile=$(pwd)
+passwdfile="${pathtofile}/ini.json"
 pathtofile="${pathtofile}/config.json"
 red='\033[31m'
 green='\033[32m'
@@ -122,14 +123,15 @@ endc='\033[0m'
 	fi
 	echo -e "${yellow}========================================${endc}"
 	info $2 $4
+	echo "${2}:${4}" > ${passwdfile}
 	wait
 	}
 #=========================Main_Program============================#
 clear
 echo -e "${yellow}========================================${endc}"
-echo -e "${blue}NOTESSR 腳本 Goorm-ver ver 1.0.2${endc}"
+echo -e "${blue}|| NOTESSR 腳本 Goorm-ver ver 1.0.3 || By E9965 ||${endc}"
 echo -e "${yellow}========================================${endc}"
-if [[ ${data} != "info" ]]
+if [[ ! -n ${data} ]]
 then
 	port=${data##*:}
 	data=${data%%:*}
@@ -137,6 +139,9 @@ then
 	main $? $data $passwd $port
 	wait
 else
+	data=$(cat ${passwdfile})
+	port=${data##*:}
+	data=${data%%:*}
 	info $data $port
 fi
 #=========================End============================#
