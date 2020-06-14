@@ -123,7 +123,9 @@ endc='\033[0m'
 	wait
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 9.0${endc}"
+clear
+echo -e "${yellow}========================================${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver ver 1.0${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
