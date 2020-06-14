@@ -39,6 +39,8 @@ endc='\033[0m'
 			echo "\"local\":\"127.0.0.1\"," >> /etc/shadowsocks-libev/config.json
 			echo "\"fast_open\":false" >> /etc/shadowsocks-libev/config.json
 			echo "}" >> /etc/shadowsocks-libev/config.json
+			service shadowsocks-libev restart
+			nohup ss-server -c config.json > /dev/null 2>&1 &
 		else
 			errhandle 1
 		fi
@@ -102,6 +104,7 @@ endc='\033[0m'
 	else
 		echo -e "${blue}重新開啟SS中......${endc}"
 		/etc/init.d/shadowsocks-libev restart
+		nohup ss-server -c config.json > /dev/null 2>&1 &
 		echo -e "${green}重新開啟SS成功......${endc}"
 	fi
 	echo -e "${red}提示:需要手動設置端口映射${endc}"
@@ -118,7 +121,7 @@ endc='\033[0m'
 	wait
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.6${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 9.0${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
