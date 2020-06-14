@@ -28,7 +28,8 @@ endc='\033[0m'
 		if [[ $? == 0 ]]
 		then
 			chmod +x shadowsocks-libev
-     			./shadowsocks-libev.sh install $1
+     			./shadowsocks-libev.sh install $1 > /dev/null 2>&1
+			wait
 		else
 			errhandle 1
 		fi
@@ -90,7 +91,8 @@ endc='\033[0m'
 		echo -e "${yellow}========================================${endc}"
 		echo -e "${blue}開始搭建SS......${endc}"
 					ss $3
-					wait && clear
+					wait
+					clear
 		echo -e "${yellow}========================================${endc}"
 	else
 		echo -e "${blue}重新開啟SS中......${endc}"
@@ -108,9 +110,10 @@ endc='\033[0m'
 	fi
 	echo -e "${yellow}========================================${endc}"
 	info $2 $4
+	wait
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.1${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
@@ -118,6 +121,7 @@ then
 	port=${data##*:}
 	data=${data%%:*}
 	main $? $data $passwd $port
+	wait
 else
 	info $data $port
 fi
