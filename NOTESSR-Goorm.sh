@@ -13,6 +13,8 @@ endc='\033[0m'
 #=========================Function============================#
 	errhandle(){
 		case $1 in
+		0)echo -e "${red}初始化失败,請檢查網絡並回報Bug${endc}" && exit 2
+			;;
 		1)echo -e "${red}無法下載SS搭建腳本,請檢查網絡並回報Bug${endc}" && exit 2
 			;;
 		2)echo -e "${red}未完成搭建SS,請回報Bug${endc}" && exit 2
@@ -73,8 +75,6 @@ endc='\033[0m'
 	iniqrcode(){
 		echo -e "${blue}初始化中......${endc}"
 		apt-get install nodejs -y > /dev/null 2>&1
-		if [[ $? != 0 ]] ; then errhandle 0 ; fi
-		apt-get install npm -y > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 0 ; fi
 		npm install -g qrcode-terminal > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 0 ; fi
