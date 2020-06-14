@@ -4,7 +4,6 @@ IFS=$(echo -en "\n\b")
 #=========================Variable============================#
 data=$1
 passwd=$2
-port=$3
 red='\033[31m'
 green='\033[32m'
 yellow='\033[33m'
@@ -99,6 +98,8 @@ echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
 then
+	port=${data##*:}
+	data=${data%%:*}
 	main $? $data $passwd $port
 else
 	info $data $port
