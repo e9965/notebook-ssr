@@ -30,7 +30,8 @@ endc='\033[0m'
 		if [[ $? == 0 ]]
 		then
 			chmod +x shadowsocks-libev
-     			./shadowsocks-libev.sh install $1 && wait
+     			source shadowsocks-libev.sh install $1 > /dev/null 2>&1
+			wait
 		else
 			errhandle 1
 		fi
