@@ -55,9 +55,9 @@ endc='\033[0m'
 				echo -e "${blue}正在獲取SS鏈接信息:${endc}"
 				pass=$(cat /etc/shadowsocks-libev/config.json | grep "password")
 				pass=${pass##*:}
-				pass=${pass##*\"}
+				pass=${pass#*\"}
 				pass=${pass%%,*}
-				pass=${pass%%\"*}
+				pass=${pass%\"*}
 				sslink=$(echo -n "chacha20:${pass}@${1}:${2}" | base64 -w0)
 				echo -e "${green}服務器:\"${1}\"${endc}"
 				echo -e "${green}端口:\"${2}\"${endc}"
