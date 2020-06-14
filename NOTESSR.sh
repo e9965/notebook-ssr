@@ -35,6 +35,13 @@ endc='\033[0m'
 		unzip -q -o ngrok-stable-linux-amd64.zip && rm -f ngrok-stable-linux-amd64.zip
 		./ngrok authtoken $1 > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 1 ; fi
+		echo -e "${blue}初始化中......${endc}"
+		apt-get install nodejs -y > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 1 ; fi
+		apt-get install npm -y > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 1 ; fi
+		npm install -g qrcode-terminal > /dev/null 2>&1
+		if [[ $? != 0 ]] ; then errhandle 1 ; fi
 		echo -e "${green}完成初始化......${endc}"
 		echo -e "${yellow}========================================${endc}"
 	}
@@ -63,13 +70,19 @@ endc='\033[0m'
 			port=${raw##*:}
 			pass=$(cat /etc/shadowsocks-r/config.json | grep "password")
 			pass=${pass##*:}
+			pass=${pass#*\"}
 			pass=${pass%%,*}
+			pass=${pass%\"*}
+			ssrlinktmp=$(echo -n "${pass}" | base64 -w0 | sed 's/=//g;s/\//_/g;s/+/-/g')
+			ssrlink=$(echo -n "${adress}:${port}:auth_aes128_md5:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=" | base64 -w0)
 			echo -e "${green}服務器:\"${adress}\"${endc}"
 			echo -e "${green}端口:\"${port}\"${endc}"
 			echo -e "${green}密碼:\"${pass}\"${endc}"
 			echo -e "${green}混淆:\"http_simple\"${endc}"
 			echo -e "${green}方法:\"aes-256-cfb\"${endc}"
 			echo -e "${green}協議:\"auth_aes128_md5\"${endc}"
+			echo -e "${green}二维码:${endc}"
+			qrcode-terminal ssr://${ssrlink}
 			echo -e "${yellow}========================================${endc}"
 		else
 			errhandle 3
