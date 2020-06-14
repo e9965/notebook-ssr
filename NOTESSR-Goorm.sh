@@ -37,11 +37,11 @@ endc='\033[0m'
 	
 	info(){
 	#Objective: Give the INFO of SSR
-			if [[ ! -f "/etc/shadowsocks-r/config.json" ]]
+			if [[ ! -f "/etc/shadowsocks-libev/config.json" ]]
 			then
 				errhandle 2
 			else
-				pass=$(cat /etc/shadowsocks-r/config.json | grep "password")
+				pass=$(cat /etc/shadowsocks-libev/config.json | grep "password")
 				pass=${pass##*:}
 				pass=${pass%%,*}
 				echo -e "${blue}正在獲取SS鏈接信息:${endc}"
@@ -57,7 +57,7 @@ endc='\033[0m'
 	
 	determinate(){
 	#Objective: Check Whether install or not
-	if [[ ! -f "/etc/init.d/shadowsocks-libev" ]]
+	if [[ ! -f "/etc/shadowsocks-libev/config.json" ]]
 	then
 		installed=0
 	else
@@ -71,18 +71,19 @@ endc='\033[0m'
 	if [[ $firstrun == 0 ]] 
 	then
 		echo -e "${green}自動安裝中......${endc}"
+		echo -e "${yellow}========================================${endc}"
 		echo -e "${blue}開始搭建SS......${endc}"
+		echo -e "${yellow}========================================${endc}"
 		ss $3
     		wait && clear
 	else
-		echo -e "${blue}重新開啟SSR中......${endc}"
+		echo -e "${blue}重新開啟SS中......${endc}"
 		/etc/init.d/shadowsocks-libev restart
-		echo -e "${green}重新開啟SSR成功......${endc}"
+		echo -e "${green}重新開啟SS成功......${endc}"
 	fi
+	echo -e "${red}提示:需要手動設置端口映射${endc}"
 	echo -e "${yellow}========================================${endc}"
-	echo -e "${blue}提示:需要手動設置端口映射${endc}"
-	echo -e "${yellow}========================================${endc}"
-	echo -e "${yellow}正在查詢SSR狀態:${endc}"
+	echo -e "${yellow}正在查詢SS狀態:${endc}"
 	if [[ ! -f "/etc/init.d/shadowsocks-libev" ]]
 	then
 		errhandle 2
@@ -93,7 +94,7 @@ endc='\033[0m'
 	info $2 $4
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 7.5${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.0${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
