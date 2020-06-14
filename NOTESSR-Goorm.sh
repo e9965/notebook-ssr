@@ -5,7 +5,7 @@ IFS=$(echo -en "\n\b")
 data=$1
 passwd=$2
 pathtofile=$(pwd)
-pathtofile="${pathtofile}/shadowsocks-libev/config.json"
+pathtofile="${pathtofile}/config.json"
 red='\033[31m'
 green='\033[32m'
 yellow='\033[33m'
@@ -127,7 +127,7 @@ endc='\033[0m'
 #=========================Main_Program============================#
 clear
 echo -e "${yellow}========================================${endc}"
-echo -e "${blue}NOTESSR 腳本 Goorm-ver ver 1.0.1${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver ver 1.0.2${endc}"
 echo -e "${yellow}========================================${endc}"
 if [[ ${data} != "info" ]]
 then
