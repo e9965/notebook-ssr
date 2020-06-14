@@ -26,16 +26,19 @@ endc='\033[0m'
 	
 	ss(){
 	#Objective: Setup SS
-		wget -q -O shadowsocks-libev.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/shadowsocks-libev.sh
+		apt-get install shadowsocks-libev -y > /dev/null 2>&1
 		if [[ $? == 0 ]]
 		then
-			chmod +x shadowsocks-libev.sh 
-     			source shadowsocks-libev.sh install $1
-			if [[ $? != 0 ]]
-			then
-				clear
-				errhandle 2
-			fi
+			echo "{" > /etc/shadowsocks-libev/config.json
+			echo "\"server\":\"0.0.0.0\"," >> /etc/shadowsocks-libev/config.json
+			echo "\"server_port\":10086," >> /etc/shadowsocks-libev/config.json
+			echo "\"local_port\":1081," >> /etc/shadowsocks-libev/config.json
+			echo "\"password\":\"${1}\"," >> /etc/shadowsocks-libev/config.json
+			echo "\"timeout\":60," >> /etc/shadowsocks-libev/config.json
+			echo "\"method\":\"chacha20\"," >> /etc/shadowsocks-libev/config.json
+			echo "\"local\":\"127.0.0.1\"," >> /etc/shadowsocks-libev/config.json
+			echo "\"fast_open\":false" >> /etc/shadowsocks-libev/config.json
+			echo "}" >> /etc/shadowsocks-libev/config.json
 		else
 			errhandle 1
 		fi
@@ -95,8 +98,6 @@ endc='\033[0m'
 		echo -e "${yellow}========================================${endc}"
 		echo -e "${blue}開始搭建SS......${endc}"
 					ss $3
-					wait
-					clear
 		echo -e "${yellow}========================================${endc}"
 	else
 		echo -e "${blue}重新開啟SS中......${endc}"
@@ -117,7 +118,7 @@ endc='\033[0m'
 	wait
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.5${endc}"
+echo -e "${blue}NOTESSR 腳本 Goorm-ver beta 8.5.6${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
