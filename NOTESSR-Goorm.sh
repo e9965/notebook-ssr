@@ -123,6 +123,7 @@ endc='\033[0m'
 	fi
 	echo -e "${yellow}========================================${endc}"
 	info $2 $4
+	touch ${passwdfile}
 	echo "${2}:${4}" > ${passwdfile}
 	wait
 	}
@@ -131,7 +132,7 @@ clear
 echo -e "${yellow}========================================${endc}"
 echo -e "${blue}|| NOTESSR 腳本 Goorm-ver ver 1.0.3 || By E9965 ||${endc}"
 echo -e "${yellow}========================================${endc}"
-if [[ ! -n ${data} ]]
+if [[ -n ${data} ]]
 then
 	port=${data##*:}
 	data=${data%%:*}
