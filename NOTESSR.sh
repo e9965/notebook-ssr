@@ -141,7 +141,7 @@ endc='\033[0m'
 	info
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR 腳本 -ver beta 8.1${endc}"
+echo -e "${blue}NOTESSR -ver 0.01 || By:E9965 || 可免流 || ${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
