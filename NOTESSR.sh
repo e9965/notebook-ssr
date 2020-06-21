@@ -35,11 +35,6 @@ endc='\033[0m'
 		unzip -q -o ngrok-stable-linux-amd64.zip && rm -f ngrok-stable-linux-amd64.zip
 		./ngrok authtoken $1 > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 1 ; fi
-		echo -e "${blue}初始化中......${endc}"
-		apt-get install nodejs -y > /dev/null 2>&1
-		if [[ $? != 0 ]] ; then errhandle 1 ; fi
-		npm install -g qrcode-terminal > /dev/null 2>&1
-		if [[ $? != 0 ]] ; then errhandle 1 ; fi
 		echo -e "${green}完成初始化......${endc}"
 		echo -e "${yellow}========================================${endc}"
 	}
@@ -79,8 +74,7 @@ endc='\033[0m'
 			echo -e "${green}混淆:\"http_simple\"${endc}"
 			echo -e "${green}方法:\"aes-256-cfb\"${endc}"
 			echo -e "${green}協議:\"auth_sha1_v4\"${endc}"
-			echo -e "${green}二维码:${endc}"
-			qrcode-terminal ssr://${ssrlink}
+			echo -e "${green}鏈接:ssr://${ssrlink}${endc}"
 			echo -e "${yellow}========================================${endc}"
 		else
 			errhandle 3
@@ -141,7 +135,7 @@ endc='\033[0m'
 	info
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR -ver 0.01 || By:E9965 || 可免流 || ${endc}"
+echo -e "${blue}NOTESSR -ver 0.02 || By:E9965 || 可免流 || ${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
