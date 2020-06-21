@@ -78,7 +78,7 @@ endc='\033[0m'
 			echo -e "${green}密碼:\"${pass}\"${endc}"
 			echo -e "${green}混淆:\"http_simple\"${endc}"
 			echo -e "${green}方法:\"aes-256-cfb\"${endc}"
-			echo -e "${green}協議:\"auth_aes128_md5\"${endc}"
+			echo -e "${green}協議:\"auth_sha1_v4\"${endc}"
 			echo -e "${green}二维码:${endc}"
 			qrcode-terminal ssr://${ssrlink}
 			echo -e "${yellow}========================================${endc}"
