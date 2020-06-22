@@ -114,8 +114,6 @@ endc='\033[0m'
 	then
 		echo -e "${green}自動安裝中......${endc}"
 		installtuning $token
-		touch /etc/shadowsocks-r/config-fake.json
-		echo -n "${3}" > /etc/shadowsocks-r/config-fake.json
 		echo -e "${blue}開始搭建SSR......${endc}"
 		ssr $3
 	else
@@ -135,12 +133,14 @@ endc='\033[0m'
 		errhandle 4
 	else
 		/etc/init.d/shadowsocks-r status
+		touch /etc/shadowsocks-r/config-fake.json
+		echo -n "${3}" > /etc/shadowsocks-r/config-fake.json
 	fi
 	echo -e "${yellow}========================================${endc}"
 	info
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR -ver 0.05 || By:E9965 || 可免流 || ${endc}"
+echo -e "${blue}NOTESSR -ver 0.5.1 || By:E9965 || 可免流 || ${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
