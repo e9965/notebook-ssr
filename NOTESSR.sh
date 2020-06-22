@@ -70,7 +70,7 @@ endc='\033[0m'
 			ssrlinktmp=$(echo -n "${pass}" | base64 -w0 | sed 's/=//g;s/\//_/g;s/+/-/g')
 			fake=$(cat /etc/shadowsocks-r/config-fake.json)
 			fake=$(echo -n "${fake}" | base64 -w0)
-			ssrlink=$(echo -n "${adress}:${port}:auth_aes128_md5:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=${fake}" | base64 -w0)
+			ssrlink=$(echo -n "${adress}:${port}:auth_sha1_v4:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=${fake}" | base64 -w0)
 			echo -e "${green}服務器:\"${adress}\"${endc}"
 			echo -e "${green}端口:\"${port}\"${endc}"
 			echo -e "${green}密碼:\"${pass}\"${endc}"
