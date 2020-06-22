@@ -134,7 +134,7 @@ endc='\033[0m'
 	else
 		/etc/init.d/shadowsocks-r status
 		touch /etc/shadowsocks-r/config-fake.json
-		echo -n "${3}" > /etc/shadowsocks-r/config-fake.json
+		echo -n "${4}" > /etc/shadowsocks-r/config-fake.json
 	fi
 	echo -e "${yellow}========================================${endc}"
 	info
