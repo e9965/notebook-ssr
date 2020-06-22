@@ -67,7 +67,7 @@ endc='\033[0m'
 			pass=${pass%%,*}
 			pass=${pass%\"*}
 			ssrlinktmp=$(echo -n "${pass}" | base64 -w0 | sed 's/=//g;s/\//_/g;s/+/-/g')
-			ssrlink=$(echo -n "${adress}:${port}:auth_aes128_md5:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=" | base64 -w0)
+			ssrlink=$(echo -n "${adress}:${port}:auth_aes128_md5:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=hkminorshort.weixin.qq.com" | base64 -w0)
 			echo -e "${green}服務器:\"${adress}\"${endc}"
 			echo -e "${green}端口:\"${port}\"${endc}"
 			echo -e "${green}密碼:\"${pass}\"${endc}"
