@@ -4,6 +4,7 @@ IFS=$(echo -en "\n\b")
 #=========================Variable============================#
 data=$1
 passwd=$2
+obfs=$3
 red='\033[31m'
 green='\033[32m'
 yellow='\033[33m'
@@ -67,7 +68,9 @@ endc='\033[0m'
 			pass=${pass%%,*}
 			pass=${pass%\"*}
 			ssrlinktmp=$(echo -n "${pass}" | base64 -w0 | sed 's/=//g;s/\//_/g;s/+/-/g')
-			ssrlink=$(echo -n "${adress}:${port}:auth_aes128_md5:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=hkminorshort.weixin.qq.com" | base64 -w0)
+			fake=$(cat /etc/shadowsocks-r/config-fake.json)
+			fake=$(echo -n "${fake}" | base64 -w0)
+			ssrlink=$(echo -n "${adress}:${port}:auth_aes128_md5:aes-256-cfb:http_simple:${ssrlinktmp}/?obfsparam=${fake}" | base64 -w0)
 			echo -e "${green}服務器:\"${adress}\"${endc}"
 			echo -e "${green}端口:\"${port}\"${endc}"
 			echo -e "${green}密碼:\"${pass}\"${endc}"
@@ -111,6 +114,8 @@ endc='\033[0m'
 	then
 		echo -e "${green}自動安裝中......${endc}"
 		installtuning $token
+		touch /etc/shadowsocks-r/config-fake.json
+		echo -n "${3}" > /etc/shadowsocks-r/config-fake.json
 		echo -e "${blue}開始搭建SSR......${endc}"
 		ssr $3
 	else
@@ -135,12 +140,12 @@ endc='\033[0m'
 	info
 	}
 #=========================Main_Program============================#
-echo -e "${blue}NOTESSR -ver 0.02 || By:E9965 || 可免流 || ${endc}"
+echo -e "${blue}NOTESSR -ver 0.05 || By:E9965 || 可免流 || ${endc}"
 echo -e "${yellow}========================================${endc}"
 determinate
 if [[ ${data} != "info" ]]
 then
-	main $? $data $passwd
+	main $? $data $passwd $obfs
 else
 	info
 fi
