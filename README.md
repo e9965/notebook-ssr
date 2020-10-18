@@ -28,12 +28,13 @@
 
 *如需修改鏈接端口/協議等 , 請自行修改`NOTESSR.sh`腳本*
 #### 食用栗子
+
 1. 打開ColabNoteBook/Kaggle，輸入以下命令
 
 ```
-%%shell
-wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh
-./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
+!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh
+!./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
+!stress-ng -c 0 -l 20
 ```
 
 2. 額外: 忘記鏈接信息
