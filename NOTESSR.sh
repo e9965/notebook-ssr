@@ -95,26 +95,7 @@ line="========================================================"
 }
 EOF
 
-	cat > /lib/systemd/system/shadowsocksR.service <<-EOF
-[Unit]
-Description=shadowsocksR
-Documentation=NOTESSR
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=forking
-LimitNOFILE=32768
-ExecStart=/usr/local/shadowsocks/server.py -c /etc/shadowsocksR.json -d start
-ExecReload=/bin/kill -s HUP \$MAINPID
-ExecStop=/bin/kill -s TERM \$MAINPID
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-    systemctl daemon-reload
-    systemctl enable shadowsocksR && systemctl restart shadowsocksR
+	/usr/local/shadowsocks/server.py -c /etc/shadowsocksR.json -d start
     sleep 3
     res=`netstat -nltp | grep ${port} | grep python`
     if [ "${res}" = "" ]; then
@@ -191,7 +172,7 @@ EOF
 			ssr > /dev/null 2>&1 & waitcounting 200
 		else
 			echo -e "${blue}重新開啟SSR中......${plain}"
-			systemctl restart shadowsocksR
+			/usr/local/shadowsocks/server.py -c /etc/shadowsocksR.json -d start
 			echo -e "${green}重新開啟SSR成功......${plain}"
 		fi
 		echo -e "${yellow}${line}${plain}"
