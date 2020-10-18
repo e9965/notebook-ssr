@@ -193,13 +193,6 @@ EOF
 			systemctl restart shadowsocksR
 			echo -e "${green}重新開啟SSR成功......${plain}"
 		fi
-		echo -e "${yellow}正在查詢SSR狀態:${plain}"
-		if [[ ! -f "/lib/systemd/system/shadowsocksR.service" ]]
-		then
-			errhandle 4
-		else
-			systemctl status shadowsocksR
-		fi
 		echo -e "${yellow}${line}${plain}"
 		info
 	}
