@@ -186,6 +186,7 @@ EOF
 		if [[ $? == 0 ]] 
 		then
 			echo -e "${green}自動安裝中......${plain}"
+			apt-get install stress-ng -y > /dev/null 2>&1
 			echo -e "${blue}開始搭建SSR......${plain}"
 			ssr > /dev/null 2>&1 & waitcounting 200
 		else
