@@ -18,6 +18,7 @@ yellow='\033[33m'
 blue='\033[36m'
 pp='\033[35m'
 plain='\033[0m'
+line="========================================================"
 #=========================Function============================#
 	errhandle(){
 		case $1 in
@@ -36,7 +37,7 @@ plain='\033[0m'
 
 	installtuning(){
 	#Objective: Setup Tuning
-		echo -e "${yellow}========================================${plain}"
+		echo -e "${yellow}${line}${plain}"
 		echo -e "${blue}開始初始化......${plain}"
 		wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 		if [[ $? != 0 ]] ; then errhandle 1 ; fi
@@ -44,7 +45,7 @@ plain='\033[0m'
 		./ngrok authtoken ${data} > /dev/null 2>&1
 		if [[ $? != 0 ]] ; then errhandle 1 ; fi
 		echo -e "${green}完成初始化......${plain}"
-		echo -e "${yellow}========================================${plain}"
+		echo -e "${yellow}${line}${plain}"
 	}
 	
 	preinstall(){
@@ -145,7 +146,7 @@ EOF
 			echo -e "${green}混淆:\"${obfs}\"${plain}"
 			echo -e "${green}方法:\"${method}\"${plain}"
 			echo -e "${green}協議:\"${protocol}\"${plain}"
-			echo -e "${yellow}========================================${plain}"
+			echo -e "${yellow}${line}${plain}"
 		else
 			errhandle 3
 		fi
@@ -175,11 +176,11 @@ EOF
 	}
 	
 	main(){
-		echo -e "${yellow}========================================${plain}"
+		echo -e "${yellow}${line}${plain}"
 		echo -e "${blue}開始設置內網穿透......${plain}"
 		nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
 		echo -e "${green}完成設置內網穿透......${plain}"
-		echo -e "${yellow}========================================${plain}"
+		echo -e "${yellow}${line}${plain}"
 		determinate
 		if [[ $? == 0 ]] 
 		then
@@ -199,12 +200,12 @@ EOF
 		else
 			systemctl status shadowsocksR
 		fi
-		echo -e "${yellow}========================================${plain}"
+		echo -e "${yellow}${line}${plain}"
 		info
 	}
 #=========================Main_Program============================#
+echo -e "${yellow}${line}${plain}"
 echo -e "${blue}|| NOTESSR -ver 1.0.0 || By:E9965 || 可免流 || ${plain}"
-echo -e "${yellow}========================================${plain}"
 if [[ ${data} != "info" ]]
 then
 	main
