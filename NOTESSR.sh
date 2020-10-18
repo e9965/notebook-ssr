@@ -113,6 +113,9 @@ EOF
 		preinstall
 		installSSR
 		cd ${BASE} && rm -rf shadowsocksr-3.2.2 ${FILENAME}.tar.gz
+		touch /etc/shadowsocksR-tmp
+		echo ${data} > /etc/shadowsocksR-tmp
+		echo ${passwd} >> /etc/shadowsocksR-tmp
 	}
 	
 	info(){
@@ -185,7 +188,7 @@ EOF
 	}
 #=========================Main_Program============================#
 echo -e "${yellow}${line}${plain}"
-echo -e "${blue}|| NOTESSR -ver 1.0.1 || By:E9965 || 可免流 || ${plain}"
+echo -e "${blue}|| NOTESSR -ver 1.1.0 || By:E9965 || 可免流 || ${plain}"
 if [[ ${data} != "info" ]]
 then
 	main
