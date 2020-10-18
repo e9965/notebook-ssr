@@ -189,7 +189,7 @@ EOF
 #=========================Main_Program============================#
 echo -e "${yellow}${line}${plain}"
 echo -e "${blue}|| NOTESSR -ver 1.1.0 || By:E9965 || 可免流 || ${plain}"
-if [[ ${data} != "info" ]]
+if [[ ${1} != "info" ]]
 then
 	main
 else
