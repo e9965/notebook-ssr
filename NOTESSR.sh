@@ -178,6 +178,7 @@ EOF
 	main(){
 		echo -e "${yellow}${line}${plain}"
 		echo -e "${blue}開始設置內網穿透......${plain}"
+		installtuning
 		nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
 		echo -e "${green}完成設置內網穿透......${plain}"
 		echo -e "${yellow}${line}${plain}"
@@ -185,7 +186,6 @@ EOF
 		if [[ $? == 0 ]] 
 		then
 			echo -e "${green}自動安裝中......${plain}"
-			installtuning
 			echo -e "${blue}開始搭建SSR......${plain}"
 			ssr > /dev/null 2>&1 & waitcounting 200
 		else
@@ -205,7 +205,7 @@ EOF
 	}
 #=========================Main_Program============================#
 echo -e "${yellow}${line}${plain}"
-echo -e "${blue}|| NOTESSR -ver 1.0.0 || By:E9965 || 可免流 || ${plain}"
+echo -e "${blue}|| NOTESSR -ver 1.0.1 || By:E9965 || 可免流 || ${plain}"
 if [[ ${data} != "info" ]]
 then
 	main
