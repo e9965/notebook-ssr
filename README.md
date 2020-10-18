@@ -29,17 +29,20 @@
 
 *如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
 #### 食用栗子
-1. 下載腳本 並 賦予權限
+1. 打開ColabNoteBook/Kaggle，輸入以下命令
 
-`!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh`
+```
+%%Shell
+wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh
+./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
+```
 
-2. 運行腳本
+2. 額外: 忘記鏈接信息
 
-`!./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}`
-
-3. 額外: 忘記鏈接信息
-
-`!./NOTESSR.sh info`
+```
+%%Shell
+./NOTESSR.sh info
+```
 
 ***
 
