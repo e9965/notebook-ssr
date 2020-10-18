@@ -35,17 +35,13 @@
 
 2. 運行腳本
 
-`!./NOTESSR.sh AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA passwd`
+`!./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}`
 
 3. 額外: 忘記鏈接信息
 
 `!./NOTESSR.sh info`
 
 ***
-## 其他
-本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
-
-`https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
 
 本源的腳本地址:
 
@@ -57,3 +53,4 @@
 - 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
 - 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
 - 2020/6/13:優化NOTESSR.sh (可自定義Passwd)
+- 2020/10/18:推出正式版（整合ver&运行速度Up）
