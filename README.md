@@ -1,5 +1,4 @@
 # Notebook-SSR // By: E9965
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
   * [錯誤白嫖JuypterNoteBook的方法 & 簡介](#錯誤白嫖JuypterNoteBook的方法-&-簡介)
     + [食用教程](#食用教程)
       - [食用栗子](#食用栗子)
@@ -27,25 +26,24 @@
 {info}              : 查看目前SSR的鏈接信息
 ```
 
-*如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
+*如需修改鏈接端口/協議等 , 請自行修改`NOTESSR.sh`腳本*
 #### 食用栗子
-1. 下載腳本 並 賦予權限
+1. 打開ColabNoteBook/Kaggle，輸入以下命令
 
-`!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh`
+```
+%%shell
+wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh
+./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
+```
 
-2. 運行腳本
+2. 額外: 忘記鏈接信息
 
-`!./NOTESSR.sh AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA passwd`
-
-3. 額外: 忘記鏈接信息
-
-`!./NOTESSR.sh info`
+```
+%%shell
+./NOTESSR.sh info
+```
 
 ***
-## 其他
-本搭建過程使用了 "秋水逸冰"大佬 的搭建腳本 && 感謝大佬
-
-`https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh`
 
 本源的腳本地址:
 
@@ -57,3 +55,4 @@
 - 2020/6/13:更新NOTESSR2.sh (使用非官方) | 更新NOTESSR.sh (使用Ngork官方) 
 - 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
 - 2020/6/13:優化NOTESSR.sh (可自定義Passwd)
+- 2020/10/18:推出正式版（整合ver&运行速度Up）
