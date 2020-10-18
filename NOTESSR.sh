@@ -2,9 +2,14 @@
 OLD_IFS=$IFS
 IFS=$(echo -en "\n\b")
 #=========================Variable============================#
-data=$1
-#Token
-passwd=$2
+if [ ! -f "/etc/shadowsocksR-tmp" ]
+then
+	data=$1
+	passwd=$2
+else
+	data=$(head -n 1 /etc/shadowsocksR-tmp)
+	passwd=$(tail -n 1 /etc/shadowsocksR-tmp)
+fi
 port=10086
 method="chacha20-ietf"
 protocol="auth_sha1_v4"
