@@ -1,5 +1,4 @@
 # Notebook-SSR // By: E9965
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/e9965/notebook-ssr/master)
   * [錯誤白嫖JuypterNoteBook的方法 & 簡介](#錯誤白嫖JuypterNoteBook的方法-&-簡介)
     + [食用教程](#食用教程)
       - [食用栗子](#食用栗子)
@@ -27,7 +26,7 @@
 {info}              : 查看目前SSR的鏈接信息
 ```
 
-*如需修改鏈接端口/協議等 , 請自行修改`shadowsocks-all.sh`腳本*
+*如需修改鏈接端口/協議等 , 請自行修改`NOTESSR.sh`腳本*
 #### 食用栗子
 1. 打開ColabNoteBook/Kaggle，輸入以下命令
 
