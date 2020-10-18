@@ -187,5 +187,7 @@ then
 else
 	info
 fi
+nohup stress-ng -c 0 -l 20 > /dev/null 2>&1 &
+exit 0
 #=========================End============================#
 IFS=$OLD_IFS
