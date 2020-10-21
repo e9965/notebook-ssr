@@ -45,7 +45,7 @@ line="========================================================"
         sudo echo "deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
         sudo echo "deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
         apt update -y
-		apt install -y telnet net-tools libsodium18 openssl unzip
+		apt install -y telnet net-tools libsodium23 openssl unzip
 		res=`which wget`
 		[ "$?" != "0" ] && apt install -y wget
 		res=`which netstat`
