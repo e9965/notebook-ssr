@@ -54,7 +54,7 @@ line="========================================================"
 	}
 	
 	preinstall(){
-		apt install -y telnet net-tools libsodium18 openssl unzip
+		apt install -y telnet net-tools libsodium23 openssl unzip
 		res=`which wget`
 		[ "$?" != "0" ] && apt install -y wget
 		res=`which netstat`
@@ -175,7 +175,6 @@ EOF
 		if [[ $? == 0 ]] 
 		then
 			echo -e "${green}自動安裝中......${plain}"
-			apt-get install stress-ng -y > /dev/null 2>&1
 			echo -e "${blue}開始搭建SSR......${plain}"
 			ssr > /dev/null 2>&1 & waitcounting 200
 		else
@@ -196,7 +195,6 @@ else
 	info
 fi
 echo -e "${green}為SSR的穩定性，本Cell會持續運行......${plain}"
-stress-ng -c 0 -l 20 > /dev/null 2>&1
 exit 0
 #=========================End============================#
 IFS=$OLD_IFS

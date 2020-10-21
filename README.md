@@ -37,6 +37,12 @@
 !wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh
 !./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
 ```
+
+2. 再新建一個CELL
+
+```
+!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1 && stress-ng -c 0 -l 10 > /dev/null 2>&1
+```
 ***
 
 【DEEPNOTE】特別版
@@ -44,7 +50,7 @@
 
 ```
 sudo su
-wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/DEEPNOTE.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${Your SSR Passwd}
+wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
 ```
 
 2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
@@ -65,4 +71,3 @@ wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/maste
 - 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
 - 2020/6/13:優化NOTESSR.sh (可自定義Passwd)
 - 2020/10/18:推出正式版（整合ver&运行速度Up）
-- 2020/10/21:針對DEEPNOTE平台推出特別版
