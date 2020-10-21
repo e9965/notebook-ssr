@@ -15,6 +15,7 @@
 - 線上免費:JuypterNoteBook
   - Kaggle [ 9小時 | 無須扶墻重建SSR | 硬盤I/O限制250Mb/s]
   - GoogleColab [ 12小時 | 需要扶墻重建SSR | 硬盤I/O限制100Mb/s]
+  - DEEPNOTE [ 理論無限 | 無須扶墻重建SSR | 硬盤I/O限制為160Mb/s | 10GBps高速網絡 ]
 ```  
 ***
 ### 食用教程
@@ -43,13 +44,12 @@
 
 ```
 sudo su
-#回車
 wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/DEEPNOTE.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${Your SSR Passwd}
 ```
 
 2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
 ```
-!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1 && stress-ng -c 0 -l 20 > /dev/null 2>&1
+!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1 && stress-ng -c 0 -l 10 > /dev/null 2>&1
 ```
 
 ***
@@ -65,3 +65,4 @@ wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/maste
 - 2020/6/13:刪除NOTESSR2.sh (無效) | 優化NOTESSR.sh邏輯 & ErrorHandling & 其他
 - 2020/6/13:優化NOTESSR.sh (可自定義Passwd)
 - 2020/10/18:推出正式版（整合ver&运行速度Up）
+- 2020/10/21:針對DEEPNOTE平台推出特別版
