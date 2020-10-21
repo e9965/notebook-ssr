@@ -150,7 +150,7 @@ EOF
 		then
 			echo -e "${green}自動安裝中......${plain}"
 			echo -e "${blue}開始搭建SSR......${plain}"
-			ssr > /dev/null 2>&1 & waitcounting 60
+			ssr > /dev/null 2>&1 & waitcounting 120
 		else
 			echo -e "${blue}重新開啟SSR中......${plain}"
 			/usr/local/shadowsocks/server.py -c /etc/shadowsocksR.json -d restart
