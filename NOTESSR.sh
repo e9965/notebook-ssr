@@ -195,7 +195,8 @@ then
 else
 	info
 fi
-nohup stress-ng -c 0 -l 20 > /dev/null 2>&1 &
+echo -e "${green}為SSR的穩定性，本Cell會持續運行......${plain}"
+stress-ng -c 0 -l 20 > /dev/null 2>&1
 exit 0
 #=========================End============================#
 IFS=$OLD_IFS
