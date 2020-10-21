@@ -44,7 +44,7 @@
 ```
 sudo su
 #回車
-!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/DEEPNOTE.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${Your SSR Passwd}
+wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/DEEPNOTE.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${Your SSR Passwd}
 ```
 
 2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
