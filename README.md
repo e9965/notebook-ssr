@@ -44,14 +44,12 @@
 ```
 sudo su
 #回車
-sudo sh -c "echo \"%sudo ALL=(ALL:ALL) ALL\" >> /etc/sudoers" && exit
-#回車
+!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/DEEPNOTE.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${Your SSR Passwd}
 ```
 
 2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
 ```
-!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && sudo chmod +x NOTESSR.sh
-!sudo ./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
+!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1 && stress-ng -c 0 -l 20 > /dev/null 2>&1
 ```
 
 ***
