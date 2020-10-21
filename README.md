@@ -38,6 +38,24 @@
 ```
 ***
 
+【DEEPNOTE】特別版
+1. 打開DEEPNOTE並新建Project&Terminal，分別輸入以下兩條命令
+
+```
+sudo su
+#回車
+sudo sh -c "echo \"%sudo ALL=(ALL:ALL) ALL\" >> /etc/sudoers" && exit
+#回車
+```
+
+2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
+```
+!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && sudo chmod +x NOTESSR.sh
+!sudo ./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
+```
+
+***
+
 本源的腳本地址:
 
 `https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh`
