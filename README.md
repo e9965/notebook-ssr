@@ -55,7 +55,8 @@ wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/maste
 
 2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
 ```
-!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1 && stress-ng -c 0 -l 10 > /dev/null 2>&1
+!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1
+!stress-ng -c 0 -l 10 -t 180d
 ```
 
 ***
