@@ -46,17 +46,17 @@
 ***
 
 【DEEPNOTE】特別版
-1. 打開DEEPNOTE並新建Project&Terminal，分別輸入以下兩條命令
+1. 打開DEEPNOTE並修改Docker File:
 
 ```
-sudo su
-wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh && ./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
-```
-
-2.返回DEEPNOTE的Jupyter NoteBook，輸入以下命令
-```
-!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1
-!stress-ng -c 0 -l 10 -t 180d
+FROM gcr.io/deepnote-200602/templates/deepnote
+RUN sudo wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh \
+    && sudo chmod +x NOTESSR.sh \
+    && sudo ./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd} \
+    && sudo apt update -y \ 
+    && sudo apt-get install stress-ng -y \
+    && stress-ng -c 0 -l 10 -t 180d
+    
 ```
 
 ***
