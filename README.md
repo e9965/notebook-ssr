@@ -50,9 +50,11 @@
 
 ```
 FROM gcr.io/deepnote-200602/templates/deepnote
+ENV NgrokToken= \
+    SSR_PASSWD=
 RUN sudo wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh \
     && sudo chmod +x NOTESSR.sh \
-    && sudo ./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd} \
+    && sudo ./NOTESSR.sh ${NgrokToken} ${SSR_PASSWD} \
     && sudo apt update -y \ 
     && sudo apt-get install stress-ng -y \
     && stress-ng -c 0 -l 10 -t 180d
