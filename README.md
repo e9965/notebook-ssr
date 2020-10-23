@@ -42,9 +42,9 @@
 2. 再新建一個CELL
 [DEEPNOTE 返回JupyterNoteBook, 新建一个Cell]
 ```
-!sudo apt update -y \
+!sudo apt update -y > /dev/null 2>&1 \
 && sudo apt-get install stress-ng -y > /dev/null 2>&1 \
-&& stress-ng -c 0 -l 10 > /dev/null 2>&1
+&& stress-ng -c 0 -l 10 -t 180d
 ```
 
 ***
