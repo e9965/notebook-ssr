@@ -32,33 +32,19 @@
 ![alt text](https://github.com/e9965/notebook-ssr/raw/master/EXAMPLE.png)
 
 1. 打開ColabNoteBook/Kaggle，輸入以下命令
-
+[DEEPNOTE新建一个Terminal]
 ```
-!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh && chmod +x NOTESSR.sh
+!wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh \
+  && chmod +x NOTESSR.sh
 !./NOTESSR.sh ${NgrokToken} ${Your SSR Passwd}
 ```
 
 2. 再新建一個CELL
-
+[DEEPNOTE 返回JupyterNoteBook, 新建一个Cell]
 ```
-!sudo apt update -y && sudo apt-get install stress-ng -y > /dev/null 2>&1 && stress-ng -c 0 -l 10 > /dev/null 2>&1
-```
-***
-
-【DEEPNOTE】特別版
-1. 打開DEEPNOTE並修改Docker File:
-
-```
-FROM gcr.io/deepnote-200602/templates/deepnote
-ENV NgrokToken= \
-    SSR_PASSWD=
-RUN sudo wget -q -O NOTESSR.sh https://raw.githubusercontent.com/e9965/notebook-ssr/master/NOTESSR.sh \
-    && sudo chmod +x NOTESSR.sh \
-    && sudo ./NOTESSR.sh ${NgrokToken} ${SSR_PASSWD} \
-    && sudo apt update -y \ 
-    && sudo apt-get install stress-ng -y \
-    && stress-ng -c 0 -l 10 -t 180d
-    
+!sudo apt update -y \
+&& sudo apt-get install stress-ng -y > /dev/null 2>&1 \
+&& stress-ng -c 0 -l 10 > /dev/null 2>&1
 ```
 
 ***
