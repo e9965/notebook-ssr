@@ -64,7 +64,7 @@ line="========================================================"
 		sudo echo "deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
 		sudo echo "deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
 		sudo apt-get update -y
-		apt install -y telnet net-tools libsodium23 openssl unzip wget net-tools
+		for i in telnet net-tools libsodium23 openssl unzip wget net-tools; do apt-get install ${i} -y ; done
 		apt autoremove -y
 		res=`which python`
 		if [ "$?" != "0" ]; then
