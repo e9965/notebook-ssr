@@ -64,11 +64,7 @@ line="========================================================"
 		sudo echo "deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
 		sudo echo "deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
 		sudo apt-get update -y
-		apt install -y telnet net-tools libsodium23 openssl unzip
-		res=`which wget`
-		[ "$?" != "0" ] && apt install -y wget
-		res=`which netstat`
-		[ "$?" != "0" ] && apt install -y net-tools
+		apt install -y telnet net-tools libsodium23 openssl unzip wget net-tools
 		apt autoremove -y
 		res=`which python`
 		if [ "$?" != "0" ]; then
@@ -178,7 +174,7 @@ EOF
 		echo -e "${yellow}${line}${plain}"
 		echo -e "${blue}開始設置內網穿透......${plain}"
 		installtuning
-		nohup ./ngrok tcp --region=jp 10086 > /dev/null 2>&1 &
+		nohup ./ngrok tcp --region=jp 10086 &
 		echo -e "${green}完成設置內網穿透......${plain}"
 		echo -e "${yellow}${line}${plain}"
 		determinate
