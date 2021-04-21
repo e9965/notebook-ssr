@@ -174,7 +174,7 @@ EOF
 		echo -e "${yellow}${line}${plain}"
 		echo -e "${blue}開始設置內網穿透......${plain}"
 		installtuning
-		nohup ./ngrok tcp --region=jp 10086 &
+		nohup ./ngrok tcp --region=jp 10086 & > /dev/null 2>&1
 		echo -e "${green}完成設置內網穿透......${plain}"
 		echo -e "${yellow}${line}${plain}"
 		determinate
