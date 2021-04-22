@@ -113,20 +113,14 @@ EOF
 	
 	info(){
 	#Objective: Give the INFO of SSR
-		wget -O tunnels http://127.0.0.1:4040/api/tunnels > /dev/null 2>&1
-		if [[ $? == 0 ]]
-		then
-			echo -e "${blue}正在獲取SSR鏈接信息:${plain}"
-			echo -e "${green}服務器:\"frp2.freefrp.net\"${plain}"
-			echo -e "${green}端口:\"10085\"${plain}"
-			echo -e "${green}密碼:\"${passwd}\"${plain}"
-			echo -e "${green}混淆:\"${obfs}\"${plain}"
-			echo -e "${green}方法:\"${method}\"${plain}"
-			echo -e "${green}協議:\"${protocol}\"${plain}"
-			echo -e "${yellow}${line}${plain}"
-		else
-			errhandle 3
-		fi
+		echo -e "${blue}正在獲取SSR鏈接信息:${plain}"
+		echo -e "${green}服務器:\"frp2.freefrp.net\"${plain}"
+		echo -e "${green}端口:\"10085\"${plain}"
+		echo -e "${green}密碼:\"${passwd}\"${plain}"
+		echo -e "${green}混淆:\"${obfs}\"${plain}"
+		echo -e "${green}方法:\"${method}\"${plain}"
+		echo -e "${green}協議:\"${protocol}\"${plain}"
+		echo -e "${yellow}${line}${plain}"
 	}
 	
 	waitcounting(){
