@@ -10,7 +10,7 @@ else
 	data=$(head -n 1 /etc/shadowsocksR-tmp)
 	passwd=$(tail -n 1 /etc/shadowsocksR-tmp)
 fi
-port=10086
+port=10085
 method="chacha20-ietf"
 protocol="auth_sha1_v4"
 obfs="http_simple"
