@@ -1,7 +1,7 @@
 if [[ ! -d /work ]]
 then
 mkdir /work
-Vfrp="0.16.1" && wget -qO - https://github.com/fatedier/frp/releases/download/v${Vfrp}/frp_${Vfrp}_linux_amd64.tar.gz | tar -xzC /work && mv /work/frp_${Vfrp}_linux_amd64 /work/frp
+Vfrp="0.36.2" && wget -qO - https://github.com/fatedier/frp/releases/download/v${Vfrp}/frp_${Vfrp}_linux_amd64.tar.gz | tar -xzC /work && mv /work/frp_${Vfrp}_linux_amd64 /work/frp
 cat > /work/frp/frpc.ini << EOF
 [common]
 server_addr = frp2.freefrp.net
