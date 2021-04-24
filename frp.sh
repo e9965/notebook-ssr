@@ -9,9 +9,9 @@ server_port = 7000
 token = freefrp.net
 [web01]
 type = tcp
-local_port = 10086
+local_port = 10080
 custom_domains = frp2.freefrp.net
-remote_port = 10086
+remote_port = 10080
 [ssh]
 type = tcp
 local_port = 23
