@@ -14,9 +14,9 @@ custom_domains = frp2.freefrp.net
 remote_port = 10086
 [ssh]
 type = tcp
-local_port = 22
+local_port = 23
 custom_domains = frp2.freefrp.net
-remote_port = 10022
+remote_port = 10023
 EOF
 ln -s /work/frp/frpc /bin/frpc
 fi
