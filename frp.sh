@@ -1,3 +1,5 @@
+DPort=${1}
+TPort=${2}
 if [[ ! -d /work ]]
 then
 mkdir /work
@@ -7,16 +9,16 @@ cat > /work/frp/frpc.ini << EOF
 server_addr = frp2.freefrp.net
 server_port = 7000
 token = freefrp.net
-[webkenny01]
+[$(head -c 6 /dev/random | base64)]
 type = tcp
 local_port = 10080
 custom_domains = frp2.freefrp.net
-remote_port = 10080
-[tkenny]
+remote_port = ${DPort}
+[$(head -c 6 /dev/random | base64)]
 type = tcp
 local_port = 23
 custom_domains = frp2.freefrp.net
-remote_port = 10023
+remote_port = ${TPort}
 EOF
 ln -s /work/frp/frpc /bin/frpc
 fi
