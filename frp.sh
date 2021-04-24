@@ -7,12 +7,12 @@ cat > /work/frp/frpc.ini << EOF
 server_addr = frp2.freefrp.net
 server_port = 7000
 token = freefrp.net
-[web01]
+[webkenny01]
 type = tcp
 local_port = 10080
 custom_domains = frp2.freefrp.net
 remote_port = 10080
-[ssh]
+[tkenny]
 type = tcp
 local_port = 23
 custom_domains = frp2.freefrp.net
