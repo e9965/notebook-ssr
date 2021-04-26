@@ -1,5 +1,7 @@
 DPort=${1}
 TPort=${2}
+ODPort=${3}
+OTPort=${4}
 if [[ ! -d /work ]]
 then
 mkdir /work
@@ -11,12 +13,12 @@ server_port = 7000
 token = freefrp.net
 [$(head -c 6 /dev/random | base64)]
 type = tcp
-local_port = 10080
+local_port = ${ODPort}
 custom_domains = frp2.freefrp.net
 remote_port = ${DPort}
 [$(head -c 6 /dev/random | base64)]
 type = tcp
-local_port = 23
+local_port = ${OTPort}
 custom_domains = frp2.freefrp.net
 remote_port = ${TPort}
 EOF
