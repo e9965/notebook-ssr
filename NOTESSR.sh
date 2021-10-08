@@ -4,10 +4,8 @@ IFS=$(echo -en "\n\b")
 #=========================Variable============================#
 if [ ! -f "/etc/shadowsocksR-tmp" ]
 then
-	data=$1
-	passwd=$2
+	passwd=$1
 else
-	data=$(head -n 1 /etc/shadowsocksR-tmp)
 	passwd=$(tail -n 1 /etc/shadowsocksR-tmp)
 fi
 port=10086
@@ -39,19 +37,6 @@ line="========================================================"
 			;;
 		esac
 	}
-
-	installtuning(){
-	#Objective: Setup Tuning
-		echo -e "${yellow}${line}${plain}"
-		echo -e "${blue}開始初始化......${plain}"
-		wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-		if [[ $? != 0 ]] ; then errhandle 1 ; fi
-		unzip -q -o ngrok-stable-linux-amd64.zip && rm -f ngrok-stable-linux-amd64.zip
-		./ngrok authtoken ${data} > /dev/null 2>&1
-		if [[ $? != 0 ]] ; then errhandle 1 ; fi
-		echo -e "${green}完成初始化......${plain}"
-		echo -e "${yellow}${line}${plain}"
-	}
 	
 	preinstall(){
 		touch /etc/apt/sources.list.d/aliyun.list
@@ -59,10 +44,6 @@ line="========================================================"
 		sudo echo "deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
 		sudo echo "deb http://mirrors.aliyun.com/debian-security buster/updates main" >> /etc/apt/sources.list.d/aliyun.list
 		sudo echo "deb-src http://mirrors.aliyun.com/debian-security buster/updates main" >> /etc/apt/sources.list.d/aliyun.list
-		sudo echo "deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
-		sudo echo "deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
-		sudo echo "deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
-		sudo echo "deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >> /etc/apt/sources.list.d/aliyun.list
 		sudo apt-get update -y
 		for i in telnet net-tools libsodium23 openssl unzip wget net-tools; do apt-get install ${i} -y ; done
 		apt autoremove -y
@@ -124,29 +105,6 @@ EOF
 		echo ${passwd} >> /etc/shadowsocksR-tmp
 	}
 	
-	info(){
-	#Objective: Give the INFO of SSR
-		wget -O tunnels http://127.0.0.1:4040/api/tunnels > /dev/null 2>&1
-		if [[ $? == 0 ]]
-		then
-			echo -e "${blue}正在獲取SSR鏈接信息:${plain}"
-			raw=$(grep -o "tcp://\{1\}[[:print:]].*,\{1\}" tunnels)
-			raw=${raw##*/}
-			raw=${raw%%\"*}
-			adress=${raw%%:*}
-			rport=${raw##*:}
-			echo -e "${green}服務器:\"${adress}\"${plain}"
-			echo -e "${green}端口:\"${rport}\"${plain}"
-			echo -e "${green}密碼:\"${passwd}\"${plain}"
-			echo -e "${green}混淆:\"${obfs}\"${plain}"
-			echo -e "${green}方法:\"${method}\"${plain}"
-			echo -e "${green}協議:\"${protocol}\"${plain}"
-			echo -e "${yellow}${line}${plain}"
-		else
-			errhandle 3
-		fi
-	}
-	
 	waitcounting(){
 	#Objective: Time Waiting Process
 		seconds_left=$1
@@ -172,11 +130,6 @@ EOF
 	
 	main(){
 		echo -e "${yellow}${line}${plain}"
-		echo -e "${blue}開始設置內網穿透......${plain}"
-		installtuning
-		nohup ./ngrok tcp --region=jp 10086 & > /dev/null 2>&1
-		echo -e "${green}完成設置內網穿透......${plain}"
-		echo -e "${yellow}${line}${plain}"
 		determinate
 		if [[ $? == 0 ]] 
 		then
@@ -189,17 +142,15 @@ EOF
 			echo -e "${green}重新開啟SSR成功......${plain}"
 		fi
 		echo -e "${yellow}${line}${plain}"
+		echo -e "${blue}開始設置內網穿透......${plain}"
+		frpc -c /work/frp/frpc.ini
+		echo -e "${green}完成設置內網穿透......${plain}"
 		info
 	}
 #=========================Main_Program============================#
 echo -e "${yellow}${line}${plain}"
-echo -e "${blue}|| NOTESSR -ver 1.1.0 || By:E9965 || 可免流 || ${plain}"
-if [[ ${1} != "info" ]]
-then
-	main
-else
-	info
-fi
+echo -e "${blue}|| NOTESSR -ver 2.0 || By:E9965 || 可免流 || ${plain}"
+main
 echo -e "${green}為SSR的穩定性，本Cell會持續運行......${plain}"
 exit 0
 #=========================End============================#
